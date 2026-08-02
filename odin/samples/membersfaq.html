@@ -1,0 +1,36 @@
+<?php
+	
+	define ("PHP_ROOT", ".");
+	require(PHP_ROOT . "/header.php");
+
+	define("PAGETITLE", SITENAME.": Member Resources FAQ");
+	require(PHP_ROOT . "/wwwheader.php");
+	
+	$faq_id = 21;
+	require(PHP_ROOT . "/widgets/faqwidget.php");
+	
+	require(PHP_ROOT . "/include/date.php");
+
+?>
+<img src="images/spacer.gif" width="1" height="9" alt="">
+
+<table width="750" height="229" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top"> 
+    <td><? require(PHP_ROOT . "/menu.php"); ?></td>
+    <td width="8"><img src="images/spacer.gif" width="8" alt=""></td>
+	<td>
+    	<h1><img src="images/star.gif">Member Resources FAQ</h1>
+		<p><?=$faqwidget->body?></p>
+		<? foreach ($faqwidget->list as $faqqa) { ?>
+		<p id="faqquestion"><?=$faqqa['faq_question']?></p>
+		<p id="faqanswer"><?=$faqqa['faq_answer']?></p>
+		<? } ?>
+		<center><img src="images/blue_spacer.gif" width="350" height="1"></center>
+        <p align="center"><img src="images/smstar.gif"> <a href="/memberresources.html">Return to Member Home</a> | <a href="/index.html">Return to USALoan Home</a> <img src="images/smstar.gif"></p>
+	</td>
+</tr>
+</table>
+<? 
+	require(PHP_ROOT . "/wwwfooter.php");
+	require(PHP_ROOT . "/footer.php");
+?>

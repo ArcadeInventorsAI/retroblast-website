@@ -1,0 +1,98 @@
+// BANNER ADS
+// RetroBlast! Ad Banners
+//gBannerMgr.Add(BannerMgr.BAN, "local,general", "http://retroblast.com/banners/Retroblast2.gif", "RetroBlast! Retrogaming News and Reviews", "http://retroblast.com");
+//gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/Retroblast1.gif", "RetroBlast! Retrogaming News and Reviews", "http://retroblast.com");
+
+
+// Dream Authentics Ads
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/dauth_banner_1.gif", "Your dream arcade cabinet, direct from Dream Authentics", "http://www.dreamauthentics.com/");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/dauth_act_banner_1.gif", "Your dream arcade cabinet, direct from Dream Authentics", "http://www.dreamauthentics.com/");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/dauth_act_banner_1.gif", "Your dream arcade cabinet, direct from Dream Authentics", "http://www.dreamauthentics.com/");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/dauth_banner_1s.gif", "Your dream arcade cabinet, direct from Dream Authentics", "http://www.dreamauthentics.com/");
+
+
+// MAMERoom Ads
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/MAMERoom.gif", "Build your own arcade cabinet with plans from MAMERoom.com!", "http://www.mameroom.com/order_uaII.asp?affid=A220");
+//gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/mameroombanner_blue.jpg", "MAMERoom, The Ultimate Gaming Experience", "http://www.mameroom.com/order_uaII.asp?affid=A220");
+//gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/MAMERoom.gif", "MAMERoom, The Ultimate Gaming Experience", "http://www.mameroom.com/order_uaII.asp?affid=A220", "http://www.cybertechdesign.net/mameroom/images/media/banner_468x60.swf");
+
+
+// X-Gaming Ads
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://www.xgaming.com/Rotate1.php?id=79046", "X-Arcade - Classic Arcade Gaming For Any Game System", "http://www.x-arcade.com/landingpage.shtml?kbid=79046");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://xgaming.com/ShowBanner.php?id=79046&img=468x60.jpg", "X-Arcade - Classic Arcade Gaming For Any Game System", "http://www.x-arcade.com/htm/cabinet.shtml?kbid=79046&img=468x60.jpg");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://xgaming.com/ShowBanner.php?id=79046&img=468x60.jpg", "X-Arcade - Classic Arcade Gaming For Any Game System", "http://www.x-arcade.com/htm/cabinet.shtml?kbid=79046&img=468x60.jpg");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://xgaming.com/ShowBanner.php?img=17&id=79046", "Relive the Arcade Experience - X-Arcade", "http://www.x-arcade.com/landingpage.shtml?kbid=79046", "http://www.x-arcade.com/banners/affiliate/banner1.swf");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://xgaming.com/ShowBanner.php?img=17&id=79046", "Relive the Arcade Experience - X-Arcade", "http://www.x-arcade.com/landingpage.shtml?kbid=79046", "http://www.x-arcade.com/banners/affiliate/banner1.swf");
+
+
+// SlikStik Ads
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/ss_ledanim1.gif", "SlikStik: The Ultimate Arcade Controller", "http://www.slikstik.com/default.aspx?Affiliate=139");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/ss_banner1.jpg", "SlikStik: The Ultimate Arcade Controller", "http://www.slikstik.com/default.aspx?Affiliate=139");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/ss_anim1.gif", "SlikStik: The Ultimate Arcade Controller", "http://www.slikstik.com/default.aspx?Affiliate=139");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/ss_anim2.gif", "SlikStik: The Ultimate Arcade Controller", "http://www.slikstik.com/default.aspx?Affiliate=139");
+
+
+// ArcadeGames4U Ads
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/ag4u_banner_1.jpg", "Find your perfect arcade cab at ArcadeGames4U.com", "http://www.arcadegames4u.com/");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/ag4u_banner_2.jpg", "Find your perfect arcade cab at ArcadeGames4U.com", "http://www.arcadegames4u.com/");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/ag4u_banner_3.jpg", "Find your perfect arcade cab at ArcadeGames4U.com", "http://www.arcadegames4u.com/");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/ag4u_banner_4.jpg", "Find your perfect arcade cab at ArcadeGames4U.com", "http://www.arcadegames4u.com/");
+
+
+// Quasimoto Ads
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/qm_banner_1.gif", "Quasimoto - Revolutionizing Arcade Systems", "http://www.quasimoto.com/");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/qm_banner_1.gif", "Quasimoto - Revolutionizing Arcade Systems", "http://www.quasimoto.com/");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/qm_banner_1.gif", "Quasimoto - Revolutionizing Arcade Systems", "http://www.quasimoto.com/");
+
+
+// Dream Arcades Ads
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/da_banner.gif", "Dream Arcades Arcade Cabinets", "http://www.dreamarcades.com/");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/da_banner.gif", "Dream Arcades Arcade Cabinets", "http://www.dreamarcades.com/");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/da_banner.gif", "Dream Arcades Arcade Cabinets", "http://www.dreamarcades.com/");
+
+
+// Game Room Magazine
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/gmr_banner_1.gif", "GameRoom Magazine", "http://www.gameroommagazine.com/");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/gmr_banner_1.gif", "GameRoom Magazine", "http://www.gameroommagazine.com/");
+//gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/gmr_banner_1.gif", "GameRoom Magazine", "http://www.gameroommagazine.com/");
+//gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/gmr_banner_1.gif", "GameRoom Magazine", "http://www.gameroommagazine.com/");
+
+
+// The Stinger Report
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/stinger_banner1.gif", "The Stinger Report Newsletter", "http://www.thestingerreport.com/");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/stinger_banner1.gif", "The Stinger Report Newsletter", "http://www.thestingerreport.com/");
+
+
+// Groovy Game Gear Ads
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/gggbanner.jpg", "Groovy Game Gear, Be a Control Freak", "http://www.groovygamegear.com/");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/gggbanner.jpg", "Groovy Game Gear, Be a Control Freak", "http://www.groovygamegear.com/");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/gggbanner.jpg", "Groovy Game Gear, Be a Control Freak", "http://www.groovygamegear.com/");
+
+
+// PinGame Journal
+//gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/pgj_banner3.gif", "PinGame Journal, Covering the World of Pinball", "http://www.pingamejournal.com/");
+
+
+
+// MAME Marquees Ads
+//gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/mm_banner_1.jpg", "Marquees, Sideart, Overlays and more at MAME Marquees", "http://www.mamemarquees.com/");
+
+
+
+// DreamHost Ads
+//gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/dreamhost_468x60-d.gif", "DreamHost Web Site Hosting", "http://www.dreamhost.com/rewards.cgi?retroblast");
+//gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/dreamhost_468x60-e.gif", "DreamHost Web Site Hosting", "http://www.dreamhost.com/rewards.cgi?retroblast");
+
+
+
+// Act-Labs
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/act_large.gif", "Act-Labs, When a Toy Just Won't Do", "http://www.act-labs.com/");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/actlabs_oilhead.gif", "Act-Labs, When a Toy Just Won't Do", "http://www.act-labs.com/");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/actlabs_oilhead.gif", "Act-Labs, When a Toy Just Won't Do", "http://www.act-labs.com/");
+
+
+
+// Arcade-in-a-box - added July 02, 2006
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/arcadeinabox/468x60-rb.jpg", "Relive Your Childhood", "http://www.arcadeinabox.com/");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/arcadeinabox/468x60-rb.jpg", "Relive Your Childhood", "http://www.arcadeinabox.com/");
+gBannerMgr.Add(BannerMgr.BAN, "general", "http://retroblast.com/banners/arcadeinabox/468x60-rb.jpg", "Relive Your Childhood", "http://www.arcadeinabox.com/");

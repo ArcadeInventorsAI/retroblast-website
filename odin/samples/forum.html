@@ -1,0 +1,74 @@
+<?php 
+	define ("PHP_ROOT", ".");
+	require(PHP_ROOT . "/header.php");
+
+	require_once(PHP_ROOT . "/include/date.php");
+	
+	$article_limit = 5;
+	require(PHP_ROOT . "/widgets/activeArticlesList.php");
+	
+	$article_limit = 25;
+	require(PHP_ROOT . "/widgets/mostCommentedArticleList.php");
+
+	define("PAGETITLE", "Active Articles @ ".SITENAME."!");
+	require(PHP_ROOT . "/wwwheader.php");
+?>
+
+	
+	<table style="width:750px;" align="center" cellpadding="0" cellspacing="0" border="0">
+	<tr valign="top"><td colspan="3"><h1><img align='absmiddle' class=illustration src='/images/guestcomments.jpg' alt='Guest Comments'> Most Recent Article Discussions</h1>
+	<table cellpadding=5 width=100%>
+	<tr class=header height=30 valign=middle><td style='width:600px'>Article Title</td><td style='width:100px;text-align:center'>Author</td><td style='width:100px;text-align:center'>Comments</td></tr>
+	<tr class=data><td colspan=3 height=2></td></tr>
+
+	<? foreach ($activeArticlesList->list as $article) { ?>
+		
+	<tr>
+		<td valign=top class=left>
+			<img class=teaser src="<?= $article['article_topicimage']?>" width=40 height=40>
+			<a href="article.html?cid=<?=$article['article_id']?>"><strong class=author><?=$article['article_title']?></strong></a>
+			<br><span class=authorNFO><strong style='width:100px'>Article Written:</strong><?= date_FullMonthName($article['article_date'])?></span>
+			<br><span class=authorNFO><strong style='width:100px'>Last Comment:</strong><?= date_FullMonthName($article['article_lastComment'])?></span>
+		</td>
+		<td valign="middle" class="right" align="center">
+			<span class=tiny><?=$article['article_author']?></span>
+		<td valign="middle" class="right" align="center"><?=$article['article_comments']?></td>
+	</tr>
+	<tr class=data><td colspan=3 height=1></td></tr>
+		
+	<?} ?>	
+	</table>
+	
+	</td></tr>
+	</table>
+	
+	<span style='height:15px'>&nbsp;</span>
+	<table style="width:750px;" align="center" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td colspan="3">
+			<h1><img align='absmiddle' class=illustration src='/images/guestcomments.jpg' alt='Guest Comments'> Most Commented Articles</h1>
+
+	<table cellpadding=5 width=100%>
+	<tr class=header height=30 valign=middle><td style='width:250px'>Article Title</td><td style='width:100px;text-align:center'>Author</td><td style='text-align:center'>Comments</td></tr>
+	<tr class=data><td colspan=3 height=2></td></tr>
+	
+	<? foreach ($mostCommentedArticleList->list as $article) { ?>	
+	<tr>
+		<td valign=top class=left>
+			<img class=teaser src="<?= $article['article_topicimage']?>" width=40 height=40>
+			<a href="article.html?cid=<?=$article['article_id']?>"><strong class=author><?=$article['article_title']?></strong></a>
+			<br><span class=authorNFO><strong style='width:100px'>Article Written:</strong><?= date_FullMonthName($article['article_date'])?></span>
+			<br><span class=authorNFO><strong style='width:100px'>Last Comment:</strong><?= date_FullMonthName($article['article_lastComment'])?></span>
+		</td>
+		<td valign="middle" class="right" align="center">
+			<span class=tiny><?=$article['article_author']?></span>
+		<td valign="middle" class="right" align="center"><?=$article['article_comments']?></td>
+	</tr>
+	<tr class=data><td colspan=3 height=1></td></tr>
+	<? } ?>			
+	</table>
+
+<?
+	require(PHP_ROOT ."/wwwFooter.php");  
+	require(PHP_ROOT ."/footer.php");
+?>

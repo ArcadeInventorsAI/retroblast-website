@@ -1,0 +1,75 @@
+<?php 
+	define ("PHP_ROOT", ".");
+	require(PHP_ROOT . "/header.php");
+
+	require_once(PHP_ROOT . "/include/date.php");
+	
+	$article_id = intval($_REQUEST['cid']);
+	require(PHP_ROOT . "/widgets/articlewidget.php");
+	
+	$content_id = $article_id;
+	require(PHP_ROOT . "/widgets/commentList.php");
+
+	define("PAGETITLE", $articlewidget->title." @ ".SITENAME."!");
+	require(PHP_ROOT . "/wwwheader.php");
+?>
+
+<table style="width:750px;text-align:center;" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td>
+		<div class="articleHeader">
+			<img class=illustration src='<?=$articlewidget->topicimage?>' alt='<?=$articlewidget->topic?>'>
+			<strong class="title"><?=$articlewidget->title?></strong><br><br>
+			<strong class="author">Written by: <?=$articlewidget->author?></strong><br>
+			<strong class="mood">Mood: <?=$articlewidget->mood?></strong><br>
+			<strong class="date">Date: <?=date_FullMonthName($articlewidget->date)?></strong>
+		</div>
+	</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>
+
+	<div align="justify" class="articleBody"><?=$articlewidget->body?></div>
+	
+	<br><hr noshade>
+	<h1><img align='absmiddle' class=illustration src='/images/guestcomments.jpg' alt='Guest Comments'> Guest Comments</h1>
+	<p class="box">
+		Interested in adding a comment? Click 
+		<a href="#" onClick="window.open('comment.html?op=<?=FORM_STATE_NEW?>&content_id=<?= $articlewidget->id?>','addcomment','height=280,width=450')">HERE</a>
+		<br><br>Note: The comments are owned by the poster. I'm not responsible for their content.
+	</p>
+
+	<? if (count($commentList->list) > 0) { ?>
+	<table cellpadding=5 width=100%>
+	<tr class=header height=30 valign=middle><td style='width:250px'>Author</td><td>Comment</td></tr>
+	<tr class=data><td colspan=2 height=2></td></tr>
+	<? foreach ($commentList->list as $comment) { ?>
+	<tr>
+		<td valign=top class=left style='width:250px'>
+			<strong class=guestbookauthor><?=$comment['comment_author']?></strong><br>
+			<span class=authorNFO>
+			<? 
+				if ($comment['comment_author_avatar'] != "") echo "<img src='".$comment['comment_author_avatar']."'><br>";
+				if ($comment['comment_author_rank'] != "") echo $comment['comment_author_rank']."<br>";
+			?>
+			Date: <?=date_Short($comment["comment_date"])?></span>
+		</td>
+		<td valign=top class=right>
+			<div class=tiny align=justify><?=$comment["comment_body"]?></div>
+		</td>
+	</tr>
+	<tr class=data><td colspan=2 height=1></td></tr>
+	<? } ?>
+	</table>
+	
+	<p class="box">
+		Interested in adding a comment? Click 
+		<a href="#" onClick="window.open('comment.html?op=<?=FORM_STATE_NEW?>&content_id=<?= $articlewidget->id?>','addcomment','height=280,width=450')">HERE</a>
+		<br><br>Note: The comments are owned by the poster. I'm not responsible for their content.
+	</p>
+	<? } ?>
+</td></tr></table>
+<?
+	require(PHP_ROOT ."/wwwFooter.php");  
+	require(PHP_ROOT ."/footer.php");
+?>

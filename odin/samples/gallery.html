@@ -1,0 +1,132 @@
+<?php
+	
+	define ("PHP_ROOT", ".");
+	require(PHP_ROOT . "/header.php");
+	
+	$gallery_id = $_REQUEST['cid'];
+	require(PHP_ROOT . "/widgets/gallerywidget.php");
+	$imagecount = $gallerywidget->list;
+	$imagelist = $gallerywidget->list;
+	
+	define("PAGETITLE", $gallerywidget->title." @ " . SITENAME);
+	require(PHP_ROOT . "/wwwheader.php");
+	
+	require(PHP_ROOT . "/include/date.php");
+
+?>
+
+ <script language="JavaScript"> 
+
+	var count;
+	var currentImage = 0;
+	var timeOutSet = false;
+	var _console = null;
+	var newGalleryImage;
+<?
+	echo "\tvar galleryImageList = new Array(".$imagecount.");\n";
+	echo "\tvar galleryCaptionList = new Array(".$imagecount.");\n\n";
+	$count = 0;
+	foreach ($imagelist as $image) {
+		echo "\tgalleryImageList[".$count."]  = '".$image['gallery_image_filename']."';\n";
+		echo "\tgalleryCaptionList[".$count."] = '".$image['gallery_image_description']."';\n";
+		$count++;
+	}
+	echo "\tcount=".$count.";";
+	?>
+
+	function nextClick() {
+		var nextImage = currentImage + 1;
+		if (nextImage >= count) { nextImage=0; }
+		galleryPopup(galleryImageList,galleryCaptionList,nextImage);
+	}
+	
+	function backClick() {
+		var nextImage = currentImage - 1;
+		if (nextImage < 0) { nextImage=count-1; }
+		galleryPopup(galleryImageList,galleryCaptionList,nextImage);
+	}
+
+	function galleryPopup(galleryImageList,galleryCaptionList,i){ 
+		
+		currentImage = i;
+		
+		if (!timeOutSet) {
+			newGalleryImage = new Image();
+			newGalleryImage.src = galleryImageList[i];
+		}
+				
+		if (!newGalleryImage.complete) {
+			timeOutSet = true;
+			setTimeout("galleryPopup(galleryImageList,galleryCaptionList,"+i+")",2000); 
+			return;
+		}
+		
+		if ((_console == null) || (_console.closed)) {
+			_console = window.open('','popup','width=800,height=600'); 
+			_console.document.open("text/html");
+		
+			_console.document.writeln("<head><title>View Gallery Images</title><link rel=stylesheet href=default.css type=text/css></head><body>");
+			_console.document.writeln("<table cellpadding=0 cellspacing=0 border=0 width=740 align=center>");
+			_console.document.writeln("<tr valign=middle height=555><td align=center colspan=3><img id=myImage src=" + galleryImageList[i] + "></td></tr>");
+			_console.document.writeln("<tr><td width=10><a href=# onClick='window.opener.backClick();'><<</a></td>");
+			_console.document.writeln("<td width=720><div align=center id=myCaption>"+galleryCaptionList[i]+"</div></td>");
+			_console.document.writeln("<td width=10 align=right><a href=# onClick='window.opener.nextClick();'>>></a></td></tr></table>");
+			_console.document.writeln("</body>");
+			
+		} else {
+			_console.document.getElementById('myImage').src = galleryImageList[i];
+			_console.document.getElementById('myCaption').innerText = galleryCaptionList[i];
+		}
+		
+		
+		
+		if (newGalleryImage.height < 555) { _console.document.getElementById('myImage').height = newGalleryImage.height; }
+		else { _console.document.getElementById('myImage').height = 555; }
+		
+		if (newGalleryImage.width < 740) { _console.document.getElementById('myImage').width = newGalleryImage.width; }
+		else { _console.document.getElementById('myImage').width = 740; }
+		
+		timeOutSet = false;
+		
+		_console.focus();
+	} 
+
+</script>
+
+<table style="width:750px;text-align:center;" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td>
+      	<? if ($gallerywidget->type = 132) { ?>
+      	<img src='images/pictures.jpg' alt='' width="205" height="70" class="illustration"> 
+      	<? } else if ($gallerywidget->type = 131) { ?>
+      	<img src='images/art.jpg' alt='' width="205" height="70" class="illustration"> 
+      	<? } ?>
+		<div class="articleHeader"><strong class="title"><?= $gallerywidget->title?></strong><br><br></div>
+	    <div align="justify" class="articleBody"><?= $gallerywidget->body?></div><br>
+		<div class=articleBody align=justify>
+			Please click on an image to view a larger version. Note that the larger versions are HIGH QUALITY, 
+			so please be patient ... a new window will open after the image has full downloaded. Enjoy your perusal 
+			of my work. ALSO, if you choose to download a copy of an image, please <a href=mailto:webmaster@jerrysworld.org>
+			email me</a> and let me know that you are using it. That's all I ask. Thank you.
+		</div>
+</td></tr>
+</table>
+<br>	
+<table style="text-align:center;" border="0" cellpadding="0" cellspacing="5">
+<?
+
+$count=0; 
+
+foreach ($gallerywidget->list as $image) { 
+	if (($count %3) == 0) { echo "<tr>"; }
+	echo "<td><img width='150' height='113' style='cursor:hand;' src='".$image['gallery_image_thumbnail']."' onClick=\"galleryPopup(galleryImageList,galleryCaptionList,'".$count."');\" alt='".$image['gallery_image_title']."'></td>";
+	if (($count %3) == 2){ echo "</tr>"; }
+	$count++; 
+} 
+
+?>
+</table>
+<? 
+	require(PHP_ROOT . "/wwwfooter.php");
+	require(PHP_ROOT . "/footer.php");
+?>

@@ -1,0 +1,284 @@
+/*
+  default.css
+  8/8/01
+  Jerry Heinz
+  Adheres to standards (www.w3.org), nuff said
+*/
+
+/* tag redefinitions */
+body {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	background-color: black;
+	color: #FFFFFF;
+	text-align: center;
+	scrollbar-3dlight-color:590BB1;
+	scrollbar-arrow-color:590BB1;
+	scrollbar-base-color:black;
+	scrollbar-darkshadow-color:black;
+	scrollbar-face-color:black;
+	scrollbar-highlight-color:black;
+	scrollbar-shadow-color:590BB1;
+}
+
+h1 {
+	color : #529E5C;
+	text-align : left;
+	font-size : 14pt;
+	letter-spacing : 3px;
+}
+
+pre {
+	border: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+/* id defintions */
+#box_menu {
+	font-size: 8pt;
+	margin : 2px 0px 2px 6px;	
+}
+
+#link_menu {
+	color: white;
+	text-decoration: none; 
+}
+
+strong.author			{
+	font-weight:bold;
+	color: gray;
+	line-height : 18px;
+}
+strong.mood			{ font-weight:bold; color: gray; font-size:8pt}
+strong.date			{ font-weight:bold; color: gray; font-size:8pt}
+strong.title				{
+	font-size : 14pt;
+	font-weight: bold;
+	color : #590BB1;
+	letter-spacing : 3px;
+}
+strong.teaserdate			{ font-weight:bold; color: gray; }
+strong.subtitle				{
+	font-weight: bold;
+	color : #529E5C;
+}
+strong.guestbookauthor			{
+	font-weight:bold;
+	color: white;
+	line-height : 18px;
+}
+span.authorNFO		{ font-weight: normal; font-size: 8pt; color:999999; }
+
+a.authorEmail			{ font-weight: normal; font-size: 8pt; color:#FFCC66; }
+a.authorWebsite			{ font-weight: normal; font-size: 8pt; color:#FFCC66; }
+/* paragraph definitions */
+p      		{
+	font-size: 9pt;
+	color: #FFFFFF;
+	text-align : left;
+}
+td em {
+	text-align:center;
+	font-weight: bold;
+	color: #9999FF;
+	font-variant : normal;
+	font-style : normal;
+}
+p em   		{
+	text-align:center;
+	font-weight: bold;
+	color: #9999FF;
+	font-variant : normal;
+	font-style : normal;
+}
+p.teaserText 	{ font-size: 8pt; color: #FFFFFF}
+p.tiny 		{ font-size: 8pt; }
+p.commentlink 	{ text-align:right;font-size:8pt;}
+p.footerText 	{ font-size:8pt;color: #999999}
+p.footerText2 	{ font-size:8pt;color: #999999}
+p.counterText 	{ font-size:8pt;color: #999999}
+p.author {
+    font-family:"Courier New", Courier, mono;
+    font-size:11pt;
+    font-weight:bold;
+    border-style: solid;
+    border-width: 1px 0px 1px 0px;
+    border-color: #333333;
+    text-align:right;
+    padding: 1px 1px 1px 1px;
+
+}
+p.quote {
+    font-size:8pt;
+    text-align:center;
+    font-weight:bold;
+    padding: 2px 2px 2px 2px;
+    color: white;
+    border: 1px #590BB1 solid
+}
+p.menu { margin: 12px 0px 0px 0px; font-size:8pt;
+	padding: 2px 2px 2px 2px; color: white; border: 1px #0066FF solid;
+	background-color: #000000;}
+p.box { font-size:8pt; border-style: solid; border-width: 1px; border-color: #333333;
+	padding: 2px 2px 2px 2px;}
+div.box{
+	border-style: solid;
+	border-width: 1px;
+	border-color: #333333;
+	padding: 2px 2px 2px 2px;
+}
+div.webcam { margin : 5px 2px 5px 2px; }
+div.braindumps{
+	margin : 3px 6px 6px 6px;
+}
+
+div.teasertext{ text-align:left; text-justify : inter-word; }
+div.articleBody{ font-size: 10pt; }
+div.articleHeader {
+	text-align:left;
+}
+
+
+span.menuHeader { margin: 12px 0px 0px 0px; font-size:8pt; text-align:center;
+	padding: 2px 2px 2px 2px; color: white; border: 1px #0033FF solid;
+	background-color: #000000;}
+
+
+span.title { font-size:8pt;}
+
+span.braindumplist { font-size: 8pt; }
+span.braindumplist em { color:grey; }
+span.affiliatelist { font-weight:bold; font-size: 8pt; }
+span.affiliatelist em { font-weight:bold; color:grey; }
+span.quote { font-size:8pt; text-align:center; font-weight:bold;
+	padding: 2px 2px 2px 2px; color: white; border: 1px #0000FF solid}
+
+/*special formats */
+span.compuText { font-family: "Courier New", Courier, mono; ; font-size: 12px; color: #009900}
+span.aimSender { font-weight:bold;font-family: "Times New Roman", Times, serif; font-size: 12px; color: #FF0000}
+span.aimReceiver { font-weight:bold; font-family: "Times New Roman", Times, serif; font-size: 12px; color: #0000FF}
+span.aim { font-family: "Times New Roman", Times, serif; font-size: 12px}
+span.tiny 				{ font-size: 8pt; }
+
+
+p.initial:first-line { letter-spacing: 0.1em; font-variant:small-caps } /*  text-transform: uppercase }*/
+p.initial:first-letter { font-size: 250%; float: left; font-weight: bold }
+
+/* list items */
+li { font-size: 8pt }
+
+/* headers */
+
+
+
+h1.topbar{ text-align: center; font-weight: bold }
+h1.menu { font-size: 10pt; font-weight: bold }
+
+/* Table Specific declarations */
+
+table { font-size: 9pt }
+table.normal { border: 1px solid gray; }
+table.layout { padding: 0px 0px 0px 0px; border: 0px; border-style: none;}
+table.quote { padding: 0px 0px 0px 0px; border: 1px solid gray; background: black; color: white;}
+table.quote { padding: 0px 0px 0px 0px;}
+
+tr.header {	font-size:8pt;background-color : #303030; font-weight: bold;}
+tr.data{ font-size:8pt; background-color : 222222; }
+td.topbar{ width: 759px; background-image: /images/top_bar.jpg }
+td.topbarleft{ width: 290px; text-align: center; background-image: /images/left_bar.jpg}
+td.topbarright{ width: 694px; background-image: /images/right_bar.jpg}
+td.special a {	color:white; font-weight:normal; font-decoration:none; background-color: black; text-decoration: none;}
+td.special a:hover{	color:#FFCC66; font-weight:normal; font-decoration:none; background-color: black; text-decoration: none;}
+tr.topbar{ height: 0px }
+th{ text-align: left; }
+
+td.left { background-color: 222222; }
+td.right { background-color: 111111; }
+
+tr.topbar{ height: 0px }
+
+th{ text-align: left; }
+
+caption { font-size: 18pt; }
+
+/* images */
+img { border-style: none }
+img.mood { margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-style: none; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px}
+img.teaser {
+	float: left;
+	border : 1px solid #590BB1;
+	padding : 2px 2px 2px 2px;
+	margin : 0px 15px 5px 0px;
+}
+img.illustration {
+	float: left;
+	margin : 0px 10px 5px 0px;
+	border : 1px solid #590BB1;
+	padding : 2px 2px 2px 2px;
+}
+
+TEXTAREA {  
+  text-decoration: none; 
+  border: #000000; 
+  border-style: solid; 
+  border-top-width: 1px; 
+  border-right-width: 1px; 
+  border-bottom-width: 1px; 
+  border-left-width: 1px; 
+    font-size: 10px; 
+  background-color: #CCCCFF; 
+  color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+SELECT { 
+  font-family: Verdana, Arial, Helvetica, sans-serif; 
+  font-size: 10px; 
+  color: #000000; 
+  text-decoration: none; 
+  border: #222222; 
+  border-style: solid; 
+  border-top-width: 1px; 
+  border-right-width: 1px; 
+  border-bottom-width: 1px; 
+  border-left-width: 1px; 
+  background-color: #EEEEEE
+}
+
+input {  
+  font-family: Verdana, Arial, Helvetica, sans-serif; 
+  font-size: 10px; 
+  color: #000000; 
+  text-decoration: none; 
+  border: #222222; 
+  border-style: solid; 
+  border-top-width: 1px; 
+  border-right-width: 1px; 
+  border-bottom-width: 1px; 
+  border-left-width: 1px; 
+}
+
+input.long {  
+	width: 300px;
+}
+
+.button {
+  font-family: Verdana, Arial, Helvetica, sans-serif; 
+  font-size: 10px; 
+  color: #000000; 
+  text-decoration: none; 
+  border: 1px #000000 solid; 
+  background-color: #590BB1
+
+}
+
+/* links */
+a:hover{  text-decoration: underline overline}
+a { color:#FFCC66; font-weight:normal;  text-decoration: underline}
+
+a.fademenu { color:FFCC66; font-weight:normal;  text-decoration: none}
+a.menu { color:white; font-weight:normal;  text-decoration: none}
+a.menu0 {	color:#9999FF;	font-size:8pt;	background-color: black;	text-decoration: none;	letter-spacing : 2px;}
+a.menu1 { color:#33CC99; font-size:8pt;	background-color: black;	text-decoration: none;	letter-spacing : 2px;}
+a.menu2 { color:#FF6666; font-size:8pt;	background-color: black;	text-decoration: none;	letter-spacing : 2px;}
+a.menu3 { color:#6699FF; font-size:8pt;background-color: black; text-decoration: none;	letter-spacing : 2px;}
+a.menu4 { color:#FFCC66; font-size:8pt; background-color: black; text-decoration: none;	letter-spacing : 2px;}

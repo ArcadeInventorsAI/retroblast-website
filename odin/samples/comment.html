@@ -1,0 +1,82 @@
+<?php
+
+	define ("PHP_ROOT", ".");
+	require(PHP_ROOT . "/header.php");
+
+	define("PAGETITLE", "Add a Comment");
+	require(PHP_ROOT . "/popupheader.php");
+	
+	require(PHP_ROOT . "/include/javascript.php");
+	require(PHP_ROOT . "/widgets/commentwidget.php");
+
+	if ($validation_message != "") { javascript_popup($validation_message); }
+	if ($validation_message == COMMENT_SUCCESS) { 
+		javascript_refreshParent();
+		javascript_closeWindow();
+	}
+		
+?>
+<body topmargin="10" marginheight="10">
+<form enctype='multipart/form-data' name='form' action='<?= $commentwidget->action ?>' method='post'>
+<center> 
+<p class=quote>Comment on <?=$commentwidget->article_title?></p>
+<table cellpadding=4 cellspacing=0 border=0>
+<tr>
+	<td align="center" colspan="2"> 
+		<textarea name="body" wrap="virutal" cols="80" rows="8"><?=$commentwidget->body?></textarea>
+		<a href="/help/htmllite.html" target="_blank">How to Format Your Comment.</a>
+	</td>
+</tr>
+<? if (intval($_SESSION['_userid']) > 0) { ?>
+<tr> 
+	<td nowrap><strong>Your Name:</strong></td>
+    <td><?=$_SESSION['_username'];?></td>
+</tr>
+<input type="hidden" name="usertype" value="<?=REGISTERED_USER?>">
+<input type="hidden" name="username" value="<?=$_SESSION['_username']?>">
+<? } else { ?>
+<tr> 
+	<td width="150" nowrap><strong>Type of Comment:</strong></td>
+	<td> 
+		<select name="usertype" onChange='commentTypeChange(this.value)' style='width:245px'>
+        <option value='<?=DRIVE_BY?>' <?= ($commentwidget->usertype == DRIVE_BY)?("selected"):("")?>>Drive By Poster</option>
+        <option value='<?=REGISTERED_USER?>' <?= ($commentwidget->usertype == REGISTERED_USER)?("selected"):("")?>>Returning User</option>
+        </select> 
+		<a href='/whatisthis.html'>?</a>
+	</td>
+</tr>	
+<tr> 
+	<td nowrap><strong>Your Name:</strong></td>
+    <td><input class="input" type="text" name="username" maxlength="60" style="width:245px" value="<?=$commentwidget->username?>"></td>
+</tr>
+<tr id='password' <?= ($commentwidget->usertype == REGISTERED_USER)?(""):("style='display:none'") ?> >
+	<td><strong>Password:</strong></td>
+    <td><input class="input" type="password" name="password" style="width:245px" value="<?=$commentwidget->password?>" maxlength="60"></td>
+</tr>
+<? } ?>
+<tr> 
+	<td colspan="2"> 
+		<input style="width:205px" type="submit" class="button" style="color:white" name="op" value="<?=FORM_STATE_POST?>">
+		<input style="width:205px" type="button" class="button" style="color:white" value="Close" onClick="self.close();"> 
+	</td>
+</tr>
+</table>
+
+<input type="hidden" name="content_id" value="<?=$commentwidget->content_id?>">
+</form>
+<?
+	require(PHP_ROOT . "/popupfooter.php"); 
+	require(PHP_ROOT . "/footer.php");
+?>
+<script language="JavaScript">
+function commentTypeChange(v){
+	switch (v) {
+	case '<?=REGISTERED_USER?>':
+		window.password.style.display = 'inline';
+		break;
+	default:
+		window.password.style.display = 'none';
+		break;
+	}
+}
+</script>

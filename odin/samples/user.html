@@ -1,0 +1,64 @@
+<?php
+
+	define("PHP_ROOT",".");
+	require(PHP_ROOT . "/header.php");
+
+	define("PAGETITLE", "Users");
+	require(PHP_ROOT . "/wwwheader.php");
+	
+	require_once(PHP_ROOT . "/include/date.php");
+	require_once(PHP_ROOT . "/include/select.php" );
+	require_once(PHP_ROOT . "/include/input.php" );
+	require_once(PHP_ROOT . "/include/javascript.php");
+	
+	require_once(PHP_ROOT . "/widgets/userwidget.php" );
+	if ($_REQUEST['message'] != "") javascript_popup($_REQUEST['message']);
+?>
+
+<form enctype='multipart/form-data' name='form' action='<?= $_SERVER['PHP_SELF']?>' method='post'>
+<table style="width:750px;text-align:center;" border="0" cellpadding="0" cellspacing="2">
+<tr><td colspan="2">
+	<h1><img src="images/guestcomments.jpg"> 
+	<? if ($user->user_id > 0 ) { ?>
+	Edit Your User Information
+	<? } else { ?>
+	Register @ <?= SITENAME ?>
+	<? } ?>
+	</h1>
+</td></tr>
+<tr><td class="left" align="right" id="label" width="20%">Username:</td><td class="right" align="left"><? input_text("username",$user->username,"long"); ?></td></tr>
+<tr><td class="left" align="right" id="label">First Name:</td><td class="right" align="left"><? input_text("firstname",$user->firstname,"long"); ?></td></tr>
+<tr><td class="left" align="right" id="label">Last Name:</td><td class="right" align="left"><? input_text("lastname",$user->lastname,"long"); ?></td></tr>
+<tr><td class="left" align="right" id="label">Email:</td><td class="right" align="left"><? input_text("user_email",$user->user_email,"long"); ?></td></tr>
+<tr><td class="left" align="right" id="label">Icq:</td><td class="right" align="left"><? input_text("user_icq",$user->user_icq,"long"); ?></td></tr>
+<tr><td class="left" align="right" id="label">Website:</td><td class="right" align="left"><? input_text("user_website",$user->user_website,"long"); ?></td></tr>
+<tr><td class="left" align="right" id="label">Aim:</td><td class="right" align="left"><? input_text("user_aim",$user->user_aim,"long"); ?></td></tr>
+<tr><td class="left" align="right" id="label">Msnm:</td><td class="right" align="left"><? input_text("user_msnm",$user->user_msnm,"long"); ?></td></tr>
+<tr><td class="left" align="right" id="label">Occupation:</td><td class="right" align="left"><? input_text("user_occ",$user->user_occ,"long"); ?></td></tr>
+<tr><td class="left" align="right" id="label">Interests:</td><td class="right" align="left"><? input_text("user_interests",$user->user_interests,"long"); ?></td></tr>
+<input type="hidden" name="status" value="<?=ST_ACTIVE?>">
+<input type="hidden" name="type" value="<?= ($user->type != "")?($user->type):(UT_READER) ?>">
+<? if ($op == FORM_STATE_EDIT) { ?> 
+<tr>
+	<td class="left" align="right" id="label">Change Password?</td>
+	<td class="right" align="left"><input type="radio" value="Y" name="changepassword"> Yes <input type="radio" value="N" name="changepassword" checked> No</td>
+</tr>
+<? } ?>
+<tr><td class="left" align="right" id="label">Password:</td><td class="right" align="left"><? input_password("confirmpassword1",$user->confirmpassword1,"long"); ?></td></tr>
+<tr><td class="left" align="right" id="label">Confirm Password:</td><td class="right" align="left"><? input_password("confirmpassword2",$user->confirmpassword2,"long"); ?></td></tr>
+<tr>
+	<td colspan='2' align='right'>
+		<input type='hidden' name='user_id' value='<?=$user->user_id?>'>
+		<input class='button' type='reset' value='Reset'>
+		<? 
+			if ($op == FORM_STATE_EDIT) { input_submit("op","Save","button"); }
+			else { input_submit("op","Post","button"); }
+		?>
+	</td>
+</tr>
+</table>
+</form>
+<?
+	require(PHP_ROOT . "/wwwfooter.php"); 
+	require(PHP_ROOT . "/footer.php");
+?>

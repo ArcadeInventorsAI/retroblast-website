@@ -1,0 +1,18 @@
+<?php 
+ 
+	define("PHP_ROOT",".");
+	require(PHP_ROOT . "/header.php");
+
+	# Note: logoutwidget must come BEFORE the wwwHeader!
+	require_once (PHP_ROOT . "/widgets/logoffwidget.php");
+
+	define("PAGETITLE", "Logout");
+	require(PHP_ROOT . "/wwwheader.php");
+?>	
+
+<div align="center">You are successfully logged out. To log in again, click <a href="login.html">here</a>!</div>
+
+<?
+	require(PHP_ROOT . "/wwwfooter.php"); 
+	require(PHP_ROOT . "/footer.php");
+?> 

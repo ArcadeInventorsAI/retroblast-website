@@ -1,0 +1,67 @@
+<?php
+
+	define ("PHP_ROOT", ".");
+	require(PHP_ROOT . "/header.php");
+
+	define("PAGETITLE", "Welcome to ".SITENAME."!");
+	require(PHP_ROOT . "/wwwheader.php");
+	require_once(PHP_ROOT . "/include/date.php");
+	
+	if ($_REQUEST['startDate'] == "") $article_limit = 5;
+	require(PHP_ROOT . "/widgets/articleList.php");
+
+?>
+<table style="width:750px;text-align:center;" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top"> 
+    <td> 
+		<? require(PHP_ROOT . "/webcam.php"); ?>
+      	<span style="height:25px">&nbsp;</span>
+		<? require(PHP_ROOT . "/navigation.php"); ?>
+      	<span style="height:25px">&nbsp;</span>
+		<? require(PHP_ROOT . "/channels.php"); ?>
+      	<span style="height:25px">&nbsp;</span>
+		<? require(PHP_ROOT . "/nfo.php"); ?> 
+	</td>
+    <td style="width:15px">&nbsp;</td>
+    <td> 
+		<? require(PHP_ROOT . "/quote.php"); ?>
+		<span style="height:15px;">&nbsp;</span>
+		<? require(PHP_ROOT . "/braindumps.php"); ?>
+		<span style="height:30px;">&nbsp;</span>
+		
+		<div style="width:615px"> 
+
+		<? foreach ($articleList->list as $article) { ?>
+
+			<!-- $tempDate = explode("-",strtok($row["createdDate"]," "));
+			$createdDate = strftime ("%a. %b %d, %Y", mktime (0,0,0,$tempDate[1],$tempDate[2],$tempDate[0])) ;-->
+
+		<table cellpadding="0" cellspacing="0" border="0">
+		<tr><td rowspan='2'><img class=teaser src="<?=$article['article_topicimage']?>" alt='<?=$article['topic']?>' width="40" height="40"></td>
+		<td valign='top' style='width:575px'><strong class=title><?=$article['article_title']?></strong></td></tr>
+		<tr><td valign='bottom'><strong class=teaserdate>Written: <?=date_FullMonthName($article['article_date'])?></strong></td></tr>
+		<tr><td colspan='2'>&nbsp;</td></tr>
+		</table>
+		
+		<div align=justify><?= $article['article_body']?></div><p class=commentlink> + Update by: 
+		<a href='/search/user/<?=$article['author_id']?>'><?=$article['article_author']?></a> | 
+		
+		<? 
+		if (intval($article['article_comments']) > 1) { echo "<a href=\"article.html?cid=".$article['article_id']."\">".$article["article_comments"]." Comments</a> | "; }
+		else if (intval($article['article_comments']) == 1) { echo "<a href=\"article.html?cid=".$article["article_id"]."\">".$article["article_comments"]." Comment</a> | "; }
+		?>
+		
+		<a href="#" onClick="window.open('comment.html?op=<?=FORM_STATE_NEW?>&content_id=<?= $article['article_id']?>','addcomment','height=280,width=450')">Add A Comment</a>
+	  	+</p>
+		<span style='height:25px;text-align:center;'><img src='/images/spacer_green.gif' style='width:300px;height:1px'></span>
+		<? } ?>
+		<div style='width:615px'>
+		<? require(PHP_ROOT . "/datescroller.php"); ?>
+	</div>
+      </div></td>
+  </tr>
+</table>
+<?
+	require(PHP_ROOT . "/wwwfooter.php"); 
+	require(PHP_ROOT . "/footer.php");
+?>

@@ -1,0 +1,9 @@
+wordpress/
+*.zip
+*.log
+# images/media served from Cloudflare R2 bucket retroblast-site, not committed
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.pdf

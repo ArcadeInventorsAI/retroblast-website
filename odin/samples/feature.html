@@ -1,0 +1,30 @@
+<?php 
+	define ("PHP_ROOT", ".");
+	require(PHP_ROOT . "/header.php");
+
+	require_once(PHP_ROOT . "/include/date.php");
+	
+	$essay_id = intval($_REQUEST['cid']);
+	require(PHP_ROOT . "/widgets/essaywidget.php");
+
+	define("PAGETITLE", $essaywidget->title." @ ".SITENAME."!");
+	require(PHP_ROOT . "/wwwheader.php");
+?>
+
+<table style="width:750px;text-align:center;" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td>
+		<div class="articleHeader">
+			<strong class="title"><?=$essaywidget->title?></strong><br>
+			<strong class="author">Written by: <?=$essaywidget->author?></strong><br>
+			<strong class="date">Date: <?=date_FullMonthName($essaywidget->date)?></strong>
+		</div>
+		<br>
+		<div align="justify" class="articleBody"><?=$essaywidget->body?></div>
+	</td>
+</tr>
+</table>
+<?
+	require(PHP_ROOT ."/wwwFooter.php");  
+	require(PHP_ROOT ."/footer.php");
+?>

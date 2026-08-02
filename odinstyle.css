@@ -1,0 +1,48 @@
+.NewsBlock {
+	font-family: 		Geneva, Arial, Helvetica, sans-serif;
+}
+
+.NewsBlock p {
+	font-family: 		Geneva, Arial, Helvetica, sans-serif;
+	font-size: 		12px;
+	margin-top: 		2px;
+	margin-right: 		15px;
+	margin-bottom: 		9px;
+	margin-left: 		15px;
+}
+
+.NewsHeadline {
+	font-size: large;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+
+.NewsDate {
+	font-family: 		Geneva, Arial, Helvetica, sans-serif;
+	font-size: 		14px;
+	font-weight: 		bold;
+	background-image: 	url(images/datebar.jpg);
+	margin-top: 		3px;
+	margin-right: 		15px;
+	margin-bottom: 		3px;
+	color: 			#FFFFFF;
+	background-repeat: 	no-repeat;
+	text-indent: 		10px;
+}
+
+.NewsItemComment {
+	text-align: 		right;
+}
+
+.CommentBox {
+	font-family: 		Geneva, Arial, Helvetica, sans-serif;
+	font-size: 		12px;
+	text-align:		center;
+	margin:			0px;
+	padding:		0px;
+}
+
+.RightColumn {
+	font-family: 		Geneva, Arial, Helvetica, sans-serif;
+	font-size: 		12px;
+	text-align:		center;
+}

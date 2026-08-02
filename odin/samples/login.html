@@ -1,0 +1,49 @@
+<?php
+
+	define ("PHP_ROOT", ".");
+	require(PHP_ROOT . "/header.php");
+
+	# Setup for the loginwidget
+	$_REQUEST['op'] = $_POST['op'];
+	$_REQUEST['redirect_page'] = "index.html";
+	require (PHP_ROOT . "/widgets/logonwidget.php");
+
+	define("PAGETITLE", "Login to ".SITENAME."!");
+	require(PHP_ROOT . "/wwwheader.php");
+	require_once(PHP_ROOT . "/include/date.php");
+	
+?>
+
+<form name="logonForm" method="POST" action="<?=$_SERVER['PHP_SELF']?>">
+<table border="0" cellspacing="0" cellpadding="5" align="center" width="750">
+	<tr> 
+    	<td align="left" colspan="4">
+    		<h1><img src="images/guestcomments.jpg"> Login to Jerrysworld</h1>
+    	</td>
+    </tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="5" align="center">
+    <tr> 
+        <td align="right"><strong>Username:</strong> </td>
+        <td><input type="text" name="username" size="22" value=""> </td>
+        <td align="right"><strong>Password:</strong> </td>
+        <td><input type="password" name="password" size="22" value=""></td>
+    </tr>
+    <? if (isset($_REQUEST['message'])) {?>
+    <tr> 
+        <td colspan="4" align="center"><?=$_REQUEST['message']?></td>
+    </tr>
+    <?}?>
+    <tr> 
+        <td colspan="4" align="center">
+			<input type="checkbox" name="autologin" value="Y"> Automatically log me in next time.
+       		<input type="submit" name="op" value="submit" style="width:75px" class="button">
+			<input type="button" class="button" onclick="javascript:location = 'user.html';" value="Register">
+		</td>
+    </tr>
+</table>  
+</form>
+<?
+	require(PHP_ROOT . "/wwwfooter.php"); 
+	require(PHP_ROOT . "/footer.php");
+?>

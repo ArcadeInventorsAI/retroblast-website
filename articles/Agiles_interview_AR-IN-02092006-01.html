@@ -1,0 +1,591 @@
+<html><!-- InstanceBegin template="/Templates/review.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>RetroBlast! Interview with MAME Dev Aaron Giles</title>
+<!-- InstanceEndEditable -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+
+<!-- InstanceBeginEditable name="keywords" -->
+<meta name="keywords" content="RetroBlast, Retro Blast">
+<!-- InstanceEndEditable -->
+
+<script language="JavaScript" src="/BannerManager.js" type="text/JavaScript"></script>
+
+<!-- Fireworks MX Dreamweaver MX target.  Created Mon Jul 07 16:03:20 GMT-0400 (Eastern Standard Time) 2003-->
+<script language="JavaScript" type="text/JavaScript">
+<!--
+<!--
+function mask(end,middle,start,subject){
+var one ='mai';
+var two='lto:';
+var three='?Subject=';
+start,middle,end,subject;
+var putogether= one+two+start+middle+end+three+subject;
+document.location.href=eval('"'+putogether+'"');
+window.status=putogether;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_nbGroup(event, grpName) { //v6.0
+  var i,img,nbArr,args=MM_nbGroup.arguments;
+  if (event == "init" && args.length > 2) {
+    if ((img = MM_findObj(args[2])) != null && !img.MM_init) {
+      img.MM_init = true; img.MM_up = args[3]; img.MM_dn = img.src;
+      if ((nbArr = document[grpName]) == null) nbArr = document[grpName] = new Array();
+      nbArr[nbArr.length] = img;
+      for (i=4; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+        if (!img.MM_up) img.MM_up = img.src;
+        img.src = img.MM_dn = args[i+1];
+        nbArr[nbArr.length] = img;
+    } }
+  } else if (event == "over") {
+    document.MM_nbOver = nbArr = new Array();
+    for (i=1; i < args.length-1; i+=3) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = (img.MM_dn && args[i+2]) ? args[i+2] : ((args[i+1])? args[i+1] : img.MM_up);
+      nbArr[nbArr.length] = img;
+    }
+  } else if (event == "out" ) {
+    for (i=0; i < document.MM_nbOver.length; i++) {
+      img = document.MM_nbOver[i]; img.src = (img.MM_dn) ? img.MM_dn : img.MM_up; }
+  } else if (event == "down") {
+    nbArr = document[grpName];
+    if (nbArr)
+      for (i=0; i < nbArr.length; i++) { img=nbArr[i]; img.src = img.MM_up; img.MM_dn = 0; }
+    document[grpName] = nbArr = new Array();
+    for (i=2; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = img.MM_dn = (args[i+1])? args[i+1] : img.MM_up;
+      nbArr[nbArr.length] = img;
+  } }
+}
+//-->
+</script>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+<link href="/retrostyle.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+body {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	background-color: #1569E5;
+}
+-->
+</style>
+<link href="/retrostyle.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" onLoad="MM_preloadImages('../images/sidebar_r2_c2_f3.jpg','../images/sidebar_r2_c2_f2.jpg','../images/sidebar_r4_c2_f3.jpg','../images/sidebar_r4_c2_f2.jpg','../images/sidebar_r6_c2_f3.jpg','../images/sidebar_r6_c2_f2.jpg','../images/sidebar_r8_c2_f3.jpg','../images/sidebar_r8_c2_f2.jpg','../images/sidebar_r10_c2_f3.jpg','../images/sidebar_r10_c2_f2.jpg','../images/sidebar_r12_c2_f3.jpg','../images/sidebar_r12_c2_f2.jpg','../images/sidebar_r14_c2_f3.jpg','../images/sidebar_r14_c2_f2.jpg')">
+<table width="940" border="0" align="center" cellpadding="0" cellspacing="0"> 
+  <!-- fwtable fwsrc="secondary template.png" fwbase="secondary template.jpg" fwstyle="Dreamweaver" fwdocid = "742308039" fwnested="0" -->
+  <tr>
+    <td><img src="../images/spacer.gif" width="178" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="26" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="215" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="100" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="261" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="129" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="20" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="11" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="1" height="1" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td><a href="../index.php"><img name="secondarytemplate_r1_c1" src="../images/secondary%20template_r1_c1.gif" width="178" height="56" border="0" alt=""></a></td>
+    <td colspan="3"><!-- InstanceBeginEditable name="Titlebar" --><img src="../images/S_Interview.jpg" width="341" height="56"><!-- InstanceEndEditable --></td>
+    <td><img name="secondarytemplate_r1_c5" src="../images/secondary%20template_r1_c5.gif" width="261" height="56" border="0" alt=""></td>
+    <td colspan="3"><a href="http://gameroommagazine.com" target="_blank"><img name="secondarytemplate_r1_c6" src="../images/secondary%20template_r1_c6.jpg" width="160" height="56" border="0" alt=""></a></td>
+    <td><img src="../images/spacer.gif" width="1" height="56" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="2"><img name="secondarytemplate_r2_c1" src="../images/secondary%20template_r2_c1.jpg" width="204" height="4" border="0" alt=""></td>
+    <td colspan="3"><img name="secondarytemplate_r2_c3" src="../images/secondary%20template_r2_c3.jpg" width="576" height="4" border="0" alt=""></td>
+    <td colspan="3"><img name="secondarytemplate_r2_c6" src="../images/secondary%20template_r2_c6.jpg" width="160" height="4" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="1" height="4" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top" background="../images/secondary%20template_r2_c1.jpg"><a href="../coinoptv.php"></a>
+      <table border="0" cellpadding="0" cellspacing="0" width="178">
+  <!-- fwtable fwsrc="sidebar_sublevel.png" fwbase="sidebar_sublevel.jpg" fwstyle="Dreamweaver" fwdocid = "742308039" fwnested="0" -->
+  <tr>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="7" height="1" border="0"></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="162" height="1" border="0"></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="9" height="1" border="0"></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="1" border="0"></td>
+  </tr>
+  <tr>
+    <td colspan="3"><img name="sidebar_sublevel_r1_c1" src="../images/sidebar_sublevel_r1_c1.jpg" width="178" height="7" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="7" border="0"></td>
+  </tr>
+  <tr>
+    <td rowspan="14"><img name="sidebar_sublevel_r2_c1" src="../images/sidebar_sublevel_r2_c1.jpg" width="7" height="223" border="0" alt=""></td>
+    <td><a href="../gameroom.html" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r2_c2','../images/sidebar_sublevel_r2_c2_f2.jpg','../images/sidebar_sublevel_r2_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r2_c2','../images/sidebar_sublevel_r2_c2_f3.jpg',1);"><img name="sidebar_sublevel_r2_c2" src="../images/sidebar_sublevel_r2_c2.jpg" width="162" height="24" border="0" alt="GameRoom Articles"></a></td>
+    <td rowspan="14"><img name="sidebar_sublevel_r2_c3" src="../images/sidebar_sublevel_r2_c3.jpg" width="9" height="223" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r3_c2" src="../images/sidebar_sublevel_r3_c2.jpg" width="162" height="7" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="7" border="0"></td>
+  </tr>
+  <tr>
+    <td><a href="http://gameroommagazine.com" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r4_c2','../images/sidebar_sublevel_r4_c2_f2.jpg','../images/sidebar_sublevel_r4_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r4_c2','../images/sidebar_sublevel_r4_c2_f3.jpg',1);"><img name="sidebar_sublevel_r4_c2" src="../images/sidebar_sublevel_r4_c2.jpg" width="162" height="24" border="0" alt="GameRoom Web Store"></a></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r5_c2" src="../images/sidebar_sublevel_r5_c2.jpg" width="162" height="8" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="8" border="0"></td>
+  </tr>
+  <tr>
+    <td><a href="../reviews.html" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r6_c2','../images/sidebar_sublevel_r6_c2_f2.jpg','../images/sidebar_sublevel_r6_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r6_c2','../images/sidebar_sublevel_r6_c2_f3.jpg',1);"><img name="sidebar_sublevel_r6_c2" src="../images/sidebar_sublevel_r6_c2.jpg" width="162" height="24" border="0" alt="RetroBlast Reviews"></a></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r7_c2" src="../images/sidebar_sublevel_r7_c2.jpg" width="162" height="8" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="8" border="0"></td>
+  </tr>
+  <tr>
+    <td><a href="../articles.html" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r8_c2','../images/sidebar_sublevel_r8_c2_f2.jpg','../images/sidebar_sublevel_r8_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r8_c2','../images/sidebar_sublevel_r8_c2_f3.jpg',1);"><img name="sidebar_sublevel_r8_c2" src="../images/sidebar_sublevel_r8_c2.jpg" width="162" height="24" border="0" alt="RetroBlast Articles"></a></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r9_c2" src="../images/sidebar_sublevel_r9_c2.jpg" width="162" height="7" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="7" border="0"></td>
+  </tr>
+  <tr>
+    <td><a href="../links.html" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r10_c2','../images/sidebar_sublevel_r10_c2_f2.jpg','../images/sidebar_sublevel_r10_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r10_c2','../images/sidebar_sublevel_r10_c2_f3.jpg',1);"><img name="sidebar_sublevel_r10_c2" src="../images/sidebar_sublevel_r10_c2.jpg" width="162" height="24" border="0" alt="Game Room Links"></a></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r11_c2" src="../images/sidebar_sublevel_r11_c2.jpg" width="162" height="8" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="8" border="0"></td>
+  </tr>
+  <tr>
+    <td><a href="../files.html" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r12_c2','../images/sidebar_sublevel_r12_c2_f2.jpg','../images/sidebar_sublevel_r12_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r12_c2','../images/sidebar_sublevel_r12_c2_f3.jpg',1);"><img name="sidebar_sublevel_r12_c2" src="../images/sidebar_sublevel_r12_c2.jpg" width="162" height="24" border="0" alt="File Downloads"></a></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r13_c2" src="../images/sidebar_sublevel_r13_c2.jpg" width="162" height="8" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="8" border="0"></td>
+  </tr>
+  <tr>
+    <td><a href="../contact.html" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r14_c2','../images/sidebar_sublevel_r14_c2_f2.jpg','../images/sidebar_sublevel_r14_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r14_c2','../images/sidebar_sublevel_r14_c2_f3.jpg',1);"><img name="sidebar_sublevel_r14_c2" src="../images/sidebar_sublevel_r14_c2.jpg" width="162" height="24" border="0" alt="Site and Contact Information"></a></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r15_c2" src="../images/sidebar_sublevel_r15_c2.jpg" width="162" height="9" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="9" border="0"></td>
+  </tr>
+</table>
+
+	  
+		
+    <td colspan="3" rowspan="2" valign="top" bgcolor="#EAEAEA">
+	
+    <!-- InstanceBeginEditable name="Body" -->
+<table width="577" border="0">
+        <tr> 
+          <td width="405"><p align="center" class="MainHeading">An Interview with 
+              MAME Developer </p>
+            <p align="center" class="MainHeading"><font size="+7">Aaron Giles</font></p></td>
+          <td width="161"><div align="center"><font size="+7"><img src="../graphics/Aaron%20Giles%20Interview/angry32.png" width="150" height="113"></font></div></td>
+        </tr>
+      </table>
+      <p align="left" class="ByLine"> By Bob Seidel<br>
+        February 2006</p>
+      <p class="BodyText">After a bit of a hiatus, welcome back to another Retroblast 
+        interview. Today we have with us MAME developer and current coordinator 
+        Aaron Giles.</p>
+      <p class="BodyText">&nbsp;</p>
+      <div align="center"><a href="http://aarongiles.com/" target="_blank"><img src="../graphics/Aaron%20Giles%20Interview/aaron%20giles%20homepage.png" width="400" height="71" border="0" class="Caption"></a><br>
+      </div>
+      <p class="SectionHead">Aaron, tell us a little about your self.<br>
+      </p>
+      <p class="BodyText">Hi, I'm Aaron Giles, currently the coordinator for the 
+        MAME project. I've been living in the Seattle, Washington area for the 
+        past 3 years. Before that, I've lived in the San Francisco Bay Area (8 
+        years), Manhattan (1.5 years), Geneva (6 months), Chicago (4 years), and 
+        Toledo, Ohio (18 years), where I grew up. I'm 35, married, no kids, one 
+        evil cat. </p>
+      <p class="BodyText">&nbsp;</p>
+      <div align="center" class="Caption"> 
+        <p><img src="../graphics/Aaron%20Giles%20Interview/Evil%20Cat.jpg" width="400" height="303" class="Caption"><br>
+          Disclaimer: This is not Aaron's cat, just another one of the millions 
+          waiting to feed on us all.</p>
+        <p>&nbsp;</p>
+      </div>
+      <p class="SectionHead"> Where do you work and what do you do aside from 
+        MAME development?<br>
+      </p>
+      <p class="BodyText"> At the moment I'm a developer lead at Microsoft, managing 
+        a team that is working on server virtualization technology derived from 
+        our Virtual PC and Virtual Server products. When I first started working 
+        on Virtual PC for the Macintosh back in 1998 at Connectix, it had a lot 
+        in common with emulation. These days, however, we're not emulating, we're 
+        &quot;virtualizing,&quot; and it's a very different thing.</p>
+      <br>
+      <p class="SectionHead">What are your top three favorite video games of all 
+        time?</p>
+      <p class="BulletList"><br>
+        Mappy (of course), Moon Patrol, and Crossbow </p>
+      <p class="BulletList">&nbsp;</p>
+      <p class="Caption"><img src="../graphics/Aaron%20Giles%20Interview/exidy%20crossbow.png" width="400" height="518"></p>
+      <p class="SectionHead"><br>
+        Can you tell us some of your early arcade and gaming memories?<br>
+      </p>
+      <p class="BodyText"> The two local in &amp; out stores -- Sterling and 7/11 
+        -- each had a couple of arcade games that they would rotate in and out. 
+        Both stores were within biking distance, so my friends and I would make 
+        regular stops there. Whoever was picking the games had great taste, as 
+        we got a pretty good selection of games over the years: Asteroids, Mappy, 
+        Gyruss, Crossbow, Moon Patrol, Elevator Action, Track &amp; Field, Hyper 
+        Sports, and a whole bunch more I can't remember at the moment. </p>
+      <p class="BodyText">&nbsp;</p>
+      <div align="center"> 
+        <p><img src="../graphics/Aaron%20Giles%20Interview/7-eleven_logo.gif" width="300" height="290"><br>
+        </p>
+      </div>
+      <p class="SectionHead">Do you currently own any consoles, PCBs, or arcade 
+        cabinets? Any that you would like to own?<br>
+      </p>
+      <p class="BodyText"> I have one arcade cabinet, which is a Mappy I picked 
+        up cheap at an auction in San Jose back when I used to live in that area. 
+        The monitor needs some work, but it plays fine and the supersized marquee 
+        is intact, which is really what I care most about. </p>
+      <p class="BodyText">&nbsp;</p>
+      <p align="center" class="Caption"><img src="../graphics/Aaron%20Giles%20Interview/mappy.png"></p>
+      <p align="center" class="Caption">&nbsp;</p>
+      <p class="BodyText">As for PCBs, I'm currently at around 70 or 80, I haven't 
+        counted recently. Mostly Atari stuff, a bunch of Strata/Incredible Technologies 
+        games, and more recently some Sega boards to play with. </p>
+      <p class="BodyText">Consoles? I have a few, but can't for the life of me 
+        ever get around to playing them. I've got a classic Atari 2600, a Dreamcast, 
+        a GameCube, and the original PlayStation that we disassembled and logic 
+        analyzed to produce Connectix Virtual Game Station. Oh, and I have a Pippin, 
+        just for yucks (I got it when I was the Mac game guru at LucasArts, but 
+        nobody was really interested in writing for it).</p>
+      <br>
+      <p class="SectionHead">What is it about emulation that keeps you passionate 
+        about the project?<br>
+      </p>
+      <p class="BodyText"> A good chunk of it is just figuring out how stuff works. 
+        Crossing that line between hardware and software. I've always flirted 
+        with working on the hardware/firmware side of things, but never really 
+        got the chance to get into it. But I have been pretty successful as a 
+        software developer. So translating hardware into software is kind of my 
+        way of continuing to ride that line. And figuring out &quot;clean&quot; 
+        or elegant ways of emulating the wide variety of arcade hardware makes 
+        for an interesting software challenge as well. </p>
+      <p class="BodyText">But also, I just have a huge fondness for all the games 
+        I grew up with. I want to see all the games recreated faithfully and properly. 
+        I want to make sure that my kids can eventually get a chance to experience 
+        the fun of the classics. :) </p>
+      <br>
+      <p class="SectionHead">What other emulation projects have you been involved 
+        in and what are your current active projects? <br>
+      </p>
+      <p class="BodyText">I started off by doing the Mac port of Stella, which 
+        is an Atari 2600 emulator. That was my first experience, and was primarily 
+        a porting exercise, not so much actual emulator development (which was 
+        all handled by the Stella developer). </p>
+      <p class="BodyText">&nbsp;</p>
+      <p class="Caption"><img src="../graphics/Aaron%20Giles%20Interview/stella%20emulator.gif" width="495" height="145"></p>
+      <p class="BodyText">&nbsp;</p>
+      <p class="BodyText">Shortly after that, though, I found MAME, and never 
+        looked back. I have literally no interest in console emulation (apart 
+        from the 2600 and the Intellivision, which are both interesting challenges). 
+        There are plenty of difficult challenges in the arcade space, and really, 
+        that's where all my favorite games were created. </p>
+      <p class="BodyText">I also did a little standalone project to emulate Radikal 
+        Bikers at full speed using static recompliation and Direct3D. But that 
+        was just a fun little diversion.</p>
+      <br>
+      <p class="SectionHead">Can you tell us when and how you got involved in 
+        the other emulation efforts?<br>
+      </p>
+      <p class="BodyText">For Stella, it was probably in 1996. I was porting Mac 
+        games at LucasArts at the time, and figured I could apply my skills to 
+        other ports. Seeing the Atari 2600 come to life for the first time was 
+        exciting. </p>
+      <p class="BodyText">For MAME, I started with MacMAME in 1997, first working 
+        on improving some of the Mac-specific code, and then starting to write 
+        my first driver. Over time, I probably rewrote 80%+ of the original Mac-specific 
+        code before I moved onto the Windows side and did the same thing. </p>
+      <p class="BodyText">&nbsp;</p>
+      <p class="Caption"><img src="../graphics/Aaron%20Giles%20Interview/macmame.png" width="450" height="293"></p>
+      <p class="BodyText">&nbsp;</p>
+      <p class="BodyText">For Radikal Bikers, it was a little challenge posed 
+        to me by someone else who was a big fan of the game. I told him it would 
+        be dog slow in MAME, and he asked if you couldn't make it faster. Well, 
+        sure, but it would take some work and would really need to be a separate 
+        emulator.... Plus, at the time, I wanted to learn more about how to use 
+        Direct3D, so I figured it was a good excuse. </p>
+      <br>
+      <p class="SectionHead">What was your first driver or other submission to 
+        the MAME project?<br>
+      </p>
+      <p class="BodyText">First driver was Mappy, though I think Mirko Buffoni 
+        and I submitted our Mappy drivers at the same time. I had just bought 
+        the import of Namco Classics Volume 2 for the PlayStation in order to 
+        play Mappy, so I had something to compare it against. </p>
+      <br>
+      <p class="SectionHead">What is your favorite driver in MAME or favorite 
+        MAME memory during development?<br>
+      </p>
+      <p class="BodyText">I still have a certain fondness for the Exidy 440 driver. 
+        I had been wanting to add Crossbow to MAME for a long time, but was intimidated 
+        by just how many ROMs there were. I had no idea how to put it together. 
+        Eventually I got to the point where I could read schematics, and was finally 
+        able to study the Crossbow schematics long enough to figure out how the 
+        video and sound system worked. There were a lot of interesting surprises 
+        in making that driver, the most notable being that all the sound effects 
+        were digitized (and in stereo, no less!) I had to learn about CVSD compression 
+        and FIR filters in order to get it sounding somewhat decent, but in the 
+        end it was worth it. It was also exciting because eventually 8 games turned 
+        out to be running on that hardware, which is a nice reward for spending 
+        so much time on something! </p>
+      <br>
+      <p class="SectionHead">How many hours a week do you spend working on MAME 
+        or other projects?<br>
+      </p>
+      <p class="BodyText">Depends on the week, but generally at least 4-5 hours 
+        and more often than not topping 10-15 hours/week. Everything else is regular 
+        life and work.</p>
+      <p class="BodyText">&nbsp;</p>
+      <div align="center"><img src="../graphics/Aaron%20Giles%20Interview/time_clock.png" width="400" height="322" class="Caption"><br>
+      </div>
+      <p class="SectionHead">Do you ever speak to or meet with other MAMEdevs?<br>
+      </p>
+      <p class="BodyText">Apart from the usual chats on the mailing list, I've 
+        worked with several of the devs in person here and there, but only very 
+        occasionally. Frank Palazzolo and I met once to exchange slapstics for 
+        analysis back when we were working together on that. I've also had a chance 
+        to meet up with a few other devs who happened to be local to me at the 
+        time. Sadly, I've never met Nicola in person. </p>
+      <br>
+      <p class="SectionHead">What is it about MAME that has kept your interest 
+        for so long?<br>
+      </p>
+      <p class="BodyText">There's always more to do. I have a &quot;to do&quot; 
+        list on my website, which is just what I'm willing to publicly admit to 
+        wanting to do. I privately have a far more comprehensive list. There are 
+        tons of drivers that could use cleanup, or save state support added, or 
+        more accurate information derived from schematics. The core is better 
+        than it was a few years ago, but I still have a bunch of things I'd like 
+        to do to improve that, breaking everything along the way. :) </p>
+      <br>
+      <p class="SectionHead">What piece of MAME code or other work are you most 
+        proud of and what function does it perform?<br>
+      </p>
+      <p class="BodyText">That's hard to say. Probably the timer system, which 
+        has become incredibly fundamental to the entire core. Prior to that, timing 
+        on multi-CPU games was pretty dicey. I really think MAME would not be 
+        capable of emulating all the games it currently does without that system. 
+      </p>
+      <br>
+      <p class="SectionHead">Is there a slice of MAME code of which you are the 
+        least proud?<br>
+      </p>
+      <p class="BodyText">The MIPS dynamic recompiler is not exactly my proudest 
+        moment. Yes, it's somewhat faster than the interpreter, but not by as 
+        much as you would think. I deliberately made it extremely simple, but 
+        the big tradeoff for being simple is that there's so much more that can 
+        be done to make the code better. </p>
+      <br>
+      <p class="SectionHead">You have been known to tear out a few 'systems' in 
+        MAME from time to time, i.e. audio and input. Some have even nicknamed 
+        you Dr. Frankenstein. What 'system' or 'systems' would you like to change 
+        and why?<br>
+      </p>
+      <p class="BodyText">&quot;Dr. Frankenstein&quot; -- I like it! Well, I've 
+        not made it a secret that I'm itching to re-do the video system to rely 
+        on the OS-dependent code to mix and render the artwork and video screen. 
+        There are a ton of benefits to this. Multi-screen games will be able to 
+        run on separate monitors; it will be possible to view just one or all 
+        of the screens on a multi-screen game; you'll be able to adjust the video 
+        screen much like you can adjust your monitor (stretch/shrink, adjust position); 
+        vector games and artwork will run much faster; artwork will be higher 
+        quality (running at your native resolution); it will be much easier to 
+        add laserdisc games support; etc, etc. It's a big jump, and I've done 
+        some preliminary work, but I'm not quite ready to launch into it full 
+        speed ahead just yet. </p>
+      <p class="BodyText">&nbsp;</p>
+      <div align="center"><img src="../graphics/Aaron%20Giles%20Interview/Frankenstein.png" width="500" height="362" class="Caption"><br>
+      </div>
+      <p class="SectionHead">Is there any game or driver that you've never been 
+        able to emulate as you would like and really bugs you?<br>
+      <p class="BodyText">The Sega System 32 mixer is kind of pissing me off at 
+        the moment. Charles MacDonald and I spent a lot of time trying to understand 
+        how it works. We got a lot of good information out of it, yet some games 
+        still don't look right. </p>
+      <p class="BodyText">&nbsp;</p>
+      <p class="Caption"><img src="../graphics/Aaron%20Giles%20Interview/Sega%20System%2032.gif" width="400" height="249"></p>
+      <p class="BodyText">&nbsp;</p>
+      <p class="BodyText">But the ones that really get me are the later Atari 
+        games: Moto Frenzy, Space Lords, Road Riot, T-Mek, Primal Rage. I really 
+        should probably go back and give them another try sometime, but it's just 
+        a ton of work trying to reverse engineer the protection on those games. 
+        The Atari guys were very aggressive about the protection on a lot of their 
+        later games, putting in multiple levels of detection to catch people who 
+        tried to reverse engineer the behavior. It doesn't help either that so 
+        many of the non-working games just aren't really that compelling, so there's 
+        not that much incentive except completeness. </p>
+      <br>
+      <p class="SectionHead">What does your significant other think of MAME and 
+        other projects?<br>
+      <p class="BodyText">She varies between tolerant and cautiously supportive 
+        of it. Sometimes when I'm really obsessed with some problem, tensions 
+        can get a little high, but most of the time we've managed to work things 
+        out. We've been married for close to 12 years, so we're pretty good at 
+        working things out. :) </p>
+      <br>
+      <p class="SectionHead">What do you use for test equipment?<br>
+      <p class="BodyText">I've got a slightly hacked supergun that I use for plugging 
+        in JAMMA boards, and a SuperPro 3000U for ROM programming/dumping. I'm 
+        not very good at soldering, so I generally try to avoid that if possible, 
+        though I do have the equipment. The rest of my equipment is just a few 
+        multimonitors and several PCs that I use for various purposes. Nothing 
+        fancy. </p>
+      <br>
+      <p class="SectionHead">When testing MAME do you use a keyboard and mouse 
+        or do you use arcade controls?<br>
+      <p class="BodyText">Keyboard and mouse only. I use a laptop and like to 
+        move around, so it's not really worth it to plug in a clunky USB controller 
+        or anything more heavy duty. Some day I hope to build a cabinet dedicated 
+        to MAME, but until then, I'm not too worried about arcade controllers. 
+      </p>
+      <div align="center"><img src="../graphics/Aaron%20Giles%20Interview/Computer%20Keyboard%20and%20Mouse.png" width="329" height="393" class="Caption"><br>
+      </div>
+      <p class="SectionHead">Do you use a front end, if so what is currently your 
+        front end of choice? 
+      <p class="BodyText">&nbsp;</p>
+      <p class="BodyText">No frontend. I've tried a few here and there and dislike 
+        every one I've tried for some reason or another. I've toyed with writing 
+        a frontend myself, but working on the core MAME is far more interesting, 
+        so it's never gone farther than parsing the info.xml and displaying a 
+        gamelist onscreen using Direct3D. As a dev, I'm always running from the 
+        command-line, and since I don't really spend any time actually playing 
+        games, it's not important to have a frontend. </p>
+      <br>
+      <p class="SectionHead">How does MAME currently compare to what you thought 
+        MAME would be when you first started and why do you feel this is the case?<br>
+      </p>
+      <p class="BodyText">Well, it's certainly gone farther than I ever thought 
+        it could when I first joined and it was focused exclusively on 8-bit CPUs. 
+        I'm constantly amazed at how the whole thing has been stretched, tweaked, 
+        and ultimately rearchitected to support new concepts. I remember when 
+        the first 16-bit CPU was added (the 68000) and what a big deal that was. 
+        I think ultimately what has kept MAME going has been the dedication of 
+        the core people involved and a general desire to do things right. </p>
+      <br>
+      <p class="SectionHead">Do you feel like your work is appreciated?<br>
+      </p>
+      <p class="BodyText">Definitely! For the most part, people have been really 
+        supportive, even when I break things for a few versions. Plus, after all 
+        these years, my noise filter is pretty strict, so the majority of the 
+        griping and unappreciative whining just gets ignored. </p>
+      <br>
+      <p class="SectionHead">What would you suggest for other young developers 
+        who are interested in MAME and emulation, as a starting point?<br>
+      </p>
+      <p class="BodyText">It's tough now. All the easy problems are solved. A 
+        lot of people think if they can just learn C, then they'll be able to 
+        emulate some games, but there's so much more you need to learn about and 
+        understand. You have to understand at least one type of assembly language, 
+        understand how computer architectures work, and a whole bunch of other 
+        stuff if you really want to work on the emulation itself. On the plus 
+        side, MAME is a good learning tool. Using the internal debugger, you can 
+        start exploring and understanding what is happening. You can also contribute 
+        to MAME in other ways as well, just check out <a href="http://mamedev.com/contribute.html" target="_blank">http://mamedev.com/contribute.html</a>. </span> 
+      </p>
+      <p class="BodyText">&nbsp; </p>
+      <div align="center"><a href="http://mamedev.com/contribute.html" target="_blank"><img src="../graphics/Aaron%20Giles%20Interview/contribute%20to%20mame.png" width="400" height="68" border="0" class="Caption"></a><br>
+      </div>
+      <p class="SectionHead">What was the dumbest question you ever actually answered?<br>
+      </p>
+      <p class="BodyText"><span class="BodyText"> Can't think of anything too 
+        dumb. Most of the dumb questions are just ignored. I get so many of them 
+        in spite of all the warnings and disclaimers it's just kind of pathetic, 
+        really. </span></p>
+      <br>
+      <p class="SectionHead">Any closing comments for the RetroBlast Readers?<br>
+      </p>
+      <p class="BodyText">If anyone out there can make me independently wealthy, 
+        so I don't have to work a day job and can just spend all my time working 
+        on MAME, contact me. :) Seriously, after almost 9 years working on the 
+        project, I'm still really enjoying the challenges and working with all 
+        of the folks involved, and I'm really looking forward to what 2006 will 
+        bring!</p>
+      <br>
+      <p class="SectionHead">Conclusion<br>
+      </p>
+      <p class="BodyText">I'd like to thank Aaron for participating in this interview. 
+        Neither Rain, nor sleet, nor ripping out one or two of MAME's subsystems 
+        could stop him from completing this interview.</p>
+      <p class="Return"><a href="http://mamedev.com" target="_blank">MAMEdev Website</a></p>
+      <p class="Return"><a href="http://aarongiles.com/" target="_blank">Aaron 
+        Giles' Website</a></p>
+      <p align="center" class="SectionHead">Exidy Crossbow flyer and Mappy arcade 
+        game image </p>
+      <p align="center" class="SectionHead">courtesy of the Great Game Database</p>
+      <p align="center" class="Return"><a href="http://ggdb.com">The Great Game 
+        Database </a></p>
+      <p align="center" class="SectionHead"><a href="../articles.html">Return 
+        to RetroBlast Articles</a></p>
+      <!-- InstanceEndEditable --> 
+</td>
+    <td colspan="3" rowspan="2" align="center" valign="top" bgcolor="#EAEAEA">
+</td>
+    <td><img src="../images/spacer.gif" width="1" height="290" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top" background="../images/secondary%20template_r2_c1.jpg">&nbsp;</td>
+    <td><img src="../images/spacer.gif" width="1" height="153" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td rowspan="3" colspan="3"><img name="secondarytemplate_r5_c1" src="../images/secondary%20template_r5_c1.jpg" width="419" height="70" border="0" alt=""></td>
+    <td colspan="5"><img name="secondarytemplate_r5_c4" src="../images/secondary%20template_r5_c4.jpg" width="521" height="37" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="1" height="37" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td rowspan="2" colspan="3"><img name="secondarytemplate_r6_c4" src="../images/secondary%20template_r6_c4.jpg" width="490" height="33" border="0" usemap="#m_secondary20template_r6_c4" alt=""></td>
+    <td><a href="../index.php"><img name="secondarytemplate_r6_c7" src="../images/secondary%20template_r6_c7.jpg" width="20" height="19" border="0" alt=""></a></td>
+    <td rowspan="2"><img name="secondarytemplate_r6_c8" src="../images/secondary%20template_r6_c8.jpg" width="11" height="33" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="1" height="19" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td><img name="secondarytemplate_r7_c7" src="../images/secondary%20template_r7_c7.jpg" width="20" height="14" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="1" height="14" border="0" alt=""></td>
+  </tr>
+  <map name="m_secondary20template_r6_c4">
+    <area shape="rect" coords="469,1,485,17" href="#" alt="Email" onMouseDown=			
+	   "mask('t.com','retroblas','info@','')">
+    <area shape="rect" coords="434,3,461,13" href="../files.html" alt="" >
+    <area shape="poly" coords="384,3,413,3,413,13,384,13,384,3" href="../links.html" alt="" >
+    <area shape="poly" coords="322,3,364,3,364,13,322,13,322,3" href="../reviews.html" alt="" >
+    <area shape="rect" coords="242,4,301,14" href="../coinoptv.php" alt="" >
+  </map>
+</table>
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-459542-1";
+urchinTracker();
+</script>
+
+</body>
+<!-- InstanceEnd --></html>

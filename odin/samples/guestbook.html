@@ -1,0 +1,34 @@
+<?php 
+	define ("PHP_ROOT", ".");
+	require(PHP_ROOT . "/header.php");
+
+	require_once(PHP_ROOT . "/include/date.php");
+	
+	require(PHP_ROOT . "/widgets/guestbookList.php");
+	
+	define("PAGETITLE", "Guestbook @ ".SITENAME."!");
+	require(PHP_ROOT . "/wwwheader.php");
+?>
+	<table style="width:750px;text-align:center;" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td>
+	<h1><img align='absmiddle' class='illustration' src='/images/guestcomments.jpg' alt='Guest Comments'> The Super-Fantabulous Jerrysworld Guestbook</h1>
+	<p class=box>Interested in signing my Guestbook? Click <a href=# onClick="window.open('sign.html?op=New','addcomment','height=250,width=450')">HERE</a>
+	<br><br>Note: The comments are owned by the poster. I'm not responsible for their content.</p>
+
+	<table cellpadding=5>
+		<tr class=header height=30 valign=middle><td style='width:250px'>Author</td><td>Comment</td></tr><tr class=data><td colspan=2 height=2></td></tr>
+
+                        
+	<? foreach ($guestbookList->list as $guestbook) { ?>
+                
+        <tr><td valign=top class=left width="20%"><strong class=guestbookauthor><?= $guestbook['guestbook_author'] ?></strong>
+		
+		<br><span class=authorNFO>Date: <?= date_FullMonthName($guestbook['guestbook_date']) ?></span>
+			</td><td valign=top class=right><div class=tiny align=justify><?= $guestbook['guestbook_body'] ?></div></td></tr>
+			<tr class=data><td colspan=2 height=1></td></tr>
+	<? } ?>
+
+	</table></td></tr></table>
+<?
+	require(PHP_ROOT ."/wwwFooter.php");  
+	require(PHP_ROOT ."/footer.php");
+?>

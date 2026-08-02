@@ -1,0 +1,52 @@
+<?php
+
+	define ("PHP_ROOT", ".");
+	require(PHP_ROOT . "/header.php");
+
+	define("PAGETITLE", "Sign My Guestbook");
+	require(PHP_ROOT . "/popupheader.php");
+	
+	require(PHP_ROOT . "/include/javascript.php");
+	require(PHP_ROOT . "/widgets/guestbookwidget.php");
+
+	if ($validation_message != "") { javascript_popup($validation_message); }
+	if ($validation_message == COMMENT_SUCCESS) { 
+		javascript_refreshParent();
+		javascript_closeWindow();
+	}
+		
+?>
+<body topmargin="10" marginheight="10">
+<form enctype='multipart/form-data' name='form' action='<?= $guestbookwidget->action ?>' method='post'>
+<center> 
+<p class=quote>Sign My Guestbook!</p>
+<table cellpadding=4 cellspacing=0 border=0>
+<tr>
+	<td colspan=2> 
+		<textarea name="body" wrap="virutal" cols="80" rows="8"><?=$guestbookwidget->body?></textarea>
+	</td>
+</tr>
+<? if (intval($_SESSION['_userid']) > 0) { ?>
+<tr> 
+	<td nowrap><strong>Your Name:</strong></td>
+    <td><?=$_SESSION['_username'];?></td>
+</tr>
+<input type="hidden" name="username" value="<?=$_SESSION['_username']?>">
+<? } else { ?>	
+<tr> 
+	<td nowrap><strong>Your Name:</strong></td>
+    <td><input class="input" type="text" name="username" maxlength="60" style="width:245px" value="<?=$guestbookwidget->username?>"></td>
+</tr>
+<? } ?>
+<tr> 
+	<td colspan="2"> 
+		<input style="width:205px" type="submit" class="button" style="color:white" name="op" value="<?=FORM_STATE_POST?>">
+		<input style="width:205px" type="button" class="button" style="color:white" value="Close" onClick="self.close();"> 
+	</td>
+</tr>
+</table>
+</form>
+<?
+	require(PHP_ROOT . "/popupfooter.php"); 
+	require(PHP_ROOT . "/footer.php");
+?>

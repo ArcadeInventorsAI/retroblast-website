@@ -1,0 +1,515 @@
+<html><!-- InstanceBegin template="/Templates/review.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>RetroBlast! - MAME Monitor Tweaks Part 1</title>
+<!-- InstanceEndEditable -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+
+<!-- InstanceBeginEditable name="keywords" -->
+<meta name="keywords" content="RetroBlast, Retro Blast">
+<!-- InstanceEndEditable -->
+
+<script language="JavaScript" src="/BannerManager.js" type="text/JavaScript"></script>
+
+<!-- Fireworks MX Dreamweaver MX target.  Created Mon Jul 07 16:03:20 GMT-0400 (Eastern Standard Time) 2003-->
+<script language="JavaScript" type="text/JavaScript">
+<!--
+<!--
+function mask(end,middle,start,subject){
+var one ='mai';
+var two='lto:';
+var three='?Subject=';
+start,middle,end,subject;
+var putogether= one+two+start+middle+end+three+subject;
+document.location.href=eval('"'+putogether+'"');
+window.status=putogether;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_nbGroup(event, grpName) { //v6.0
+  var i,img,nbArr,args=MM_nbGroup.arguments;
+  if (event == "init" && args.length > 2) {
+    if ((img = MM_findObj(args[2])) != null && !img.MM_init) {
+      img.MM_init = true; img.MM_up = args[3]; img.MM_dn = img.src;
+      if ((nbArr = document[grpName]) == null) nbArr = document[grpName] = new Array();
+      nbArr[nbArr.length] = img;
+      for (i=4; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+        if (!img.MM_up) img.MM_up = img.src;
+        img.src = img.MM_dn = args[i+1];
+        nbArr[nbArr.length] = img;
+    } }
+  } else if (event == "over") {
+    document.MM_nbOver = nbArr = new Array();
+    for (i=1; i < args.length-1; i+=3) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = (img.MM_dn && args[i+2]) ? args[i+2] : ((args[i+1])? args[i+1] : img.MM_up);
+      nbArr[nbArr.length] = img;
+    }
+  } else if (event == "out" ) {
+    for (i=0; i < document.MM_nbOver.length; i++) {
+      img = document.MM_nbOver[i]; img.src = (img.MM_dn) ? img.MM_dn : img.MM_up; }
+  } else if (event == "down") {
+    nbArr = document[grpName];
+    if (nbArr)
+      for (i=0; i < nbArr.length; i++) { img=nbArr[i]; img.src = img.MM_up; img.MM_dn = 0; }
+    document[grpName] = nbArr = new Array();
+    for (i=2; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = img.MM_dn = (args[i+1])? args[i+1] : img.MM_up;
+      nbArr[nbArr.length] = img;
+  } }
+}
+//-->
+</script>
+<!-- InstanceBeginEditable name="head" -->
+<style type="text/css">
+<!--
+.style3 {color: #0000FF}
+-->
+</style>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+//-->
+</script>
+<!-- InstanceEndEditable -->
+<link href="/retrostyle.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+body {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	background-color: #1569E5;
+}
+-->
+</style>
+<link href="/retrostyle.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" onLoad="MM_preloadImages('../images/sidebar_r2_c2_f3.jpg','../images/sidebar_r2_c2_f2.jpg','../images/sidebar_r4_c2_f3.jpg','../images/sidebar_r4_c2_f2.jpg','../images/sidebar_r6_c2_f3.jpg','../images/sidebar_r6_c2_f2.jpg','../images/sidebar_r8_c2_f3.jpg','../images/sidebar_r8_c2_f2.jpg','../images/sidebar_r10_c2_f3.jpg','../images/sidebar_r10_c2_f2.jpg','../images/sidebar_r12_c2_f3.jpg','../images/sidebar_r12_c2_f2.jpg','../images/sidebar_r14_c2_f3.jpg','../images/sidebar_r14_c2_f2.jpg')">
+<table width="940" border="0" align="center" cellpadding="0" cellspacing="0"> 
+  <!-- fwtable fwsrc="secondary template.png" fwbase="secondary template.jpg" fwstyle="Dreamweaver" fwdocid = "742308039" fwnested="0" -->
+  <tr>
+    <td><img src="../images/spacer.gif" width="178" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="26" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="215" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="100" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="261" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="129" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="20" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="11" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="1" height="1" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td><a href="../index.php"><img name="secondarytemplate_r1_c1" src="../images/secondary%20template_r1_c1.gif" width="178" height="56" border="0" alt=""></a></td>
+    <td colspan="3"><!-- InstanceBeginEditable name="Titlebar" --><img src="../images/S_Articles.jpg" width="341" height="56"><!-- InstanceEndEditable --></td>
+    <td><img name="secondarytemplate_r1_c5" src="../images/secondary%20template_r1_c5.gif" width="261" height="56" border="0" alt=""></td>
+    <td colspan="3"><a href="http://gameroommagazine.com" target="_blank"><img name="secondarytemplate_r1_c6" src="../images/secondary%20template_r1_c6.jpg" width="160" height="56" border="0" alt=""></a></td>
+    <td><img src="../images/spacer.gif" width="1" height="56" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="2"><img name="secondarytemplate_r2_c1" src="../images/secondary%20template_r2_c1.jpg" width="204" height="4" border="0" alt=""></td>
+    <td colspan="3"><img name="secondarytemplate_r2_c3" src="../images/secondary%20template_r2_c3.jpg" width="576" height="4" border="0" alt=""></td>
+    <td colspan="3"><img name="secondarytemplate_r2_c6" src="../images/secondary%20template_r2_c6.jpg" width="160" height="4" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="1" height="4" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top" background="../images/secondary%20template_r2_c1.jpg"><a href="../coinoptv.php"></a>
+      <table border="0" cellpadding="0" cellspacing="0" width="178">
+  <!-- fwtable fwsrc="sidebar_sublevel.png" fwbase="sidebar_sublevel.jpg" fwstyle="Dreamweaver" fwdocid = "742308039" fwnested="0" -->
+  <tr>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="7" height="1" border="0"></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="162" height="1" border="0"></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="9" height="1" border="0"></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="1" border="0"></td>
+  </tr>
+  <tr>
+    <td colspan="3"><img name="sidebar_sublevel_r1_c1" src="../images/sidebar_sublevel_r1_c1.jpg" width="178" height="7" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="7" border="0"></td>
+  </tr>
+  <tr>
+    <td rowspan="14"><img name="sidebar_sublevel_r2_c1" src="../images/sidebar_sublevel_r2_c1.jpg" width="7" height="223" border="0" alt=""></td>
+    <td><a href="../gameroom.html" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r2_c2','../images/sidebar_sublevel_r2_c2_f2.jpg','../images/sidebar_sublevel_r2_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r2_c2','../images/sidebar_sublevel_r2_c2_f3.jpg',1);"><img name="sidebar_sublevel_r2_c2" src="../images/sidebar_sublevel_r2_c2.jpg" width="162" height="24" border="0" alt="GameRoom Articles"></a></td>
+    <td rowspan="14"><img name="sidebar_sublevel_r2_c3" src="../images/sidebar_sublevel_r2_c3.jpg" width="9" height="223" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r3_c2" src="../images/sidebar_sublevel_r3_c2.jpg" width="162" height="7" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="7" border="0"></td>
+  </tr>
+  <tr>
+    <td><a href="http://gameroommagazine.com" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r4_c2','../images/sidebar_sublevel_r4_c2_f2.jpg','../images/sidebar_sublevel_r4_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r4_c2','../images/sidebar_sublevel_r4_c2_f3.jpg',1);"><img name="sidebar_sublevel_r4_c2" src="../images/sidebar_sublevel_r4_c2.jpg" width="162" height="24" border="0" alt="GameRoom Web Store"></a></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r5_c2" src="../images/sidebar_sublevel_r5_c2.jpg" width="162" height="8" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="8" border="0"></td>
+  </tr>
+  <tr>
+    <td><a href="../reviews.html" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r6_c2','../images/sidebar_sublevel_r6_c2_f2.jpg','../images/sidebar_sublevel_r6_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r6_c2','../images/sidebar_sublevel_r6_c2_f3.jpg',1);"><img name="sidebar_sublevel_r6_c2" src="../images/sidebar_sublevel_r6_c2.jpg" width="162" height="24" border="0" alt="RetroBlast Reviews"></a></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r7_c2" src="../images/sidebar_sublevel_r7_c2.jpg" width="162" height="8" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="8" border="0"></td>
+  </tr>
+  <tr>
+    <td><a href="../articles.html" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r8_c2','../images/sidebar_sublevel_r8_c2_f2.jpg','../images/sidebar_sublevel_r8_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r8_c2','../images/sidebar_sublevel_r8_c2_f3.jpg',1);"><img name="sidebar_sublevel_r8_c2" src="../images/sidebar_sublevel_r8_c2.jpg" width="162" height="24" border="0" alt="RetroBlast Articles"></a></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r9_c2" src="../images/sidebar_sublevel_r9_c2.jpg" width="162" height="7" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="7" border="0"></td>
+  </tr>
+  <tr>
+    <td><a href="../links.html" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r10_c2','../images/sidebar_sublevel_r10_c2_f2.jpg','../images/sidebar_sublevel_r10_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r10_c2','../images/sidebar_sublevel_r10_c2_f3.jpg',1);"><img name="sidebar_sublevel_r10_c2" src="../images/sidebar_sublevel_r10_c2.jpg" width="162" height="24" border="0" alt="Game Room Links"></a></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r11_c2" src="../images/sidebar_sublevel_r11_c2.jpg" width="162" height="8" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="8" border="0"></td>
+  </tr>
+  <tr>
+    <td><a href="../files.html" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r12_c2','../images/sidebar_sublevel_r12_c2_f2.jpg','../images/sidebar_sublevel_r12_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r12_c2','../images/sidebar_sublevel_r12_c2_f3.jpg',1);"><img name="sidebar_sublevel_r12_c2" src="../images/sidebar_sublevel_r12_c2.jpg" width="162" height="24" border="0" alt="File Downloads"></a></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r13_c2" src="../images/sidebar_sublevel_r13_c2.jpg" width="162" height="8" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="8" border="0"></td>
+  </tr>
+  <tr>
+    <td><a href="../contact.html" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r14_c2','../images/sidebar_sublevel_r14_c2_f2.jpg','../images/sidebar_sublevel_r14_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r14_c2','../images/sidebar_sublevel_r14_c2_f3.jpg',1);"><img name="sidebar_sublevel_r14_c2" src="../images/sidebar_sublevel_r14_c2.jpg" width="162" height="24" border="0" alt="Site and Contact Information"></a></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r15_c2" src="../images/sidebar_sublevel_r15_c2.jpg" width="162" height="9" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="9" border="0"></td>
+  </tr>
+</table>
+
+	  
+		
+    <td colspan="3" rowspan="2" valign="top" bgcolor="#EAEAEA">
+	
+    <!-- InstanceBeginEditable name="Body" --> 
+      <p class="MainHeading"><img src="../graphics/monitor_title_2.jpg" width="560" height="169"></p>
+      <table width="566" border="0">
+        <tr> 
+          <td width="283" class="ByLine">by Alan Kamrowski II (aka: SA Dev)<br>
+            February, 2006</td>
+          <td width="273"><div align="center"><span class="Caption"><span class="style3">Quick 
+              Jump:</span> 
+              <select name="select" onChange="MM_jumpMenu('parent',this,0)">
+                <option selected>Choose Section</option>
+                <option value="winmamemon_1.html">Part 1: MAME Monitor Tweaks 
+                for Windows</option>
+                <option value="winmamemon_2.html">Part 2: Mame Monitor Tweaks 
+                for Windows</option>
+              </select>
+              </span></div></td>
+        </tr>
+      </table>
+      <p align="center" class="MainHeading">How to Configure and Tweak Windows 
+        MAME for the Best Video Timing</p>
+      <p class="Caption"><img src="../graphics/SAMDEVtweaks/image001.png" width="458" height="372"></p>
+      <p class="Caption">Commando by Data East, 1985</p>
+      <p class="BodyText">It seems an odd combination, a classic arcade game such 
+        as Commando inside an XP style window, but choosing Windows as the platform 
+        for MAME is an easy one. Windows is easy to configure and use, has excellent 
+        driver support, good performance, and is quite stable in the NT/2000/XP 
+        variations.</p>
+      <p class="BodyText">Another good thing is that Windows MAME is very easy 
+        to get running because you don&#8217;t need any specific hardware or drivers. 
+        If your system runs Windows just fine, then you should be able to run 
+        Windows MAME also. It might be easy to get running, but after a little 
+        playing around, you will find that getting perfect video is anything but 
+        easy. </p>
+      <p class="BodyText">The reason for this is that Windows MAME is unable to 
+        control the video card directly; it must go through Windows. Windows does 
+        a pretty good job of handling everything related to video except one thing, 
+        the refresh rate. Precise refresh rates are not available although you 
+        usually have a few limited ones per resolution such as 60 hertz (Hz), 
+        70 Hz, or 85 Hz.</p>
+      <p class="BodyText">There is a version of Mame (AdvanceMame) that can generate 
+        perfect clock rates by controlling the video hardware directly. The downsides 
+        to AdvanceMame however are that it is very hardware specific (you are 
+        better off buying hardware known to work with it than trying to get what 
+        you have working) and that it is difficult to configure.</p>
+      <p class="BodyText">&nbsp;</p>
+      <div align="center"><strong class="MainHeading2">For those who are not familiar 
+        with the term hertz, it simply means the number of times per second. You 
+        will see it used in many ways, but for our purposes it describes the number 
+        of times a monitor is updated each second. So a 60 Hz refresh rate means 
+        that the display is refreshed (or drawn) 60 times per second.</strong> 
+      </div>
+      <p class="BodyText">&nbsp;</p>
+      <p class="BodyText">This article can get fairily technical at times, but 
+        I will do my best to explain terms and concepts as it progresses. It helps 
+        if you have a basic understanding of how a monitor works.</p>
+      <p align="center" class="Return"><a href="http://computer.howstuffworks.com/monitor7.htm" target="_blank" class="Return">How 
+        CRT Monitors Work Courtesy: &quot;How Stuff Works&quot; </a></p>
+      <p class="BodyText">In MAME, game speed is referred to as frames per second 
+        (fps), but don&#8217;t let this confuse you as it is the same thing as 
+        hertz (60 fps = 60 Hz). In fact, a game in MAME with a 53 fps game speed 
+        is set that way because the actual arcade game ran at 53 Hz. Actual arcade 
+        games run in perfect video timing with their monitors because they actually 
+        generate the signal the monitor is displaying. Here is a depiction of 
+        how this would look:<br>
+      </p>
+      <p class="BodyText"><span style='font-size:10.0pt;
+font-family:Tahoma'>&nbsp;</span></p>
+      <p class=Caption><img src="../graphics/SAMDEVtweaks/image001.jpg"></p>
+      <p class=BodyText style='text-indent:.5in'>&nbsp;</p>
+      <p class=BodyText style='text-indent:.5in'>In a game at 53 fps, there would 
+        be exactly 53 of these frames for every one second. Our goal with MAME 
+        is to reproduce this as closely as possible, but this becomes a problem 
+        because the closest available refresh rate in Windows is 60 Hz. The real 
+        issue here is that there are two timers constantly out of sync with each 
+        other. MAME has a timer it uses to keep the game at the correct game speed 
+        (fps), and the monitor has a timer (its refresh rate) that it uses to 
+        display frames one after another. Even when you think these timers should 
+        be in sync (60 fps game and 60 Hz monitor) they will not be because most 
+        likely your monitor is actually running 59.992321 Hz or 60.103341 Hz. 
+        To complicate this even further, MAME has games ranging from 30 fps to 
+        69 fps.</p>
+      <p></p>
+      <p class=BodyText style='text-indent:.5in'>There are 3 techniques that can 
+        be used to address the issue.  Here is a description of each technique 
+        along with its advantages and disadvantages.  You can use MAME's timer 
+        only, you can use the monitor's timer only, or you can use them both at 
+        the same time.</p>
+      <p class=BodyText style='text-indent:.5in'>&nbsp; </p>
+      <p class=SectionHead>Technique 1:  Use MAME's timer only</p>
+      <p class=BodyText>This technique is actually default behavior for Windows 
+        MAME.  It updates the frame when its timer indicates it should and it 
+        does not care if the monitor is in the middle of drawing the last frame.  
+        So, the monitor could be somewhere in the middle of drawing frame 1 when 
+        MAME updates to frame 2 and the monitor would never finish drawing frame 
+        1.  Here is what this looks like: </p>
+      <p class=MsoNormal><span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span></p>
+      <p class=Caption><img src="../graphics/SAMDEVtweaks/image002.jpg"></p>
+      <p class=MsoNormal><span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span></p>
+      <p class=BodyText style='text-indent:.5in'>The two advantages of this technique 
+        are perfect game speed and best video performance.  Perfect game speed 
+        means you will be playing the game at exactly the same speed it ran on 
+        the original arcade hardware.  Best video performance means that if your 
+        CPU is barely able to keep up with a game, then this technique will yield 
+        the fastest frame rate.</p>
+      <p class=BodyText style='text-indent:.5in'>The disadvantage of this technique 
+        is that is looks terrible. When a frame is changed and the monitor is 
+        currently drawing the previous one, this often results in a retrace line 
+        (see the example above). Scrolling games look especially bad as the retrace 
+        line can actually slowly move up or down the display; this is called tearing. 
+        Flashing sequences also look terrible because the original arcade game 
+        may have meant the monitor to flash solid red and then solid green, but 
+        instead you will get frames that are partially red and partially green. 
+        I consider this technique so bad visually that I don&#8217;t use it unless 
+        I have to.</p>
+      <p class=BodyText style='text-indent:.5in'>&nbsp;</p>
+      <p class=SectionHead><span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span><b>Technique 
+        2:  Use the Monitor's Timer Only</b></p>
+      <p class=BodyText style='text-indent:.5in'>To enable this technique you 
+        must enable the <u>syncrefresh</u> option (I will underline all MAME options 
+        in this article). I also suggest that you enable the <u>triplebuffer</u> option 
+        as well. You can specify these options on the command line or put them 
+        in your MAME.INI. This will disable MAME&#8217;s internal timer and run 
+        the game speed at the monitor&#8217;s refresh rate.</p>
+      <p class=Quote style='text-indent:.5in'>If you don&#8217;t enable <u>triplebuffer</u> 
+        with <u>syncrefresh</u>, MAME will enable <u>waitvsync</u> whether you have it enabled 
+        or not. So, with <u>syncrefresh</u> you have a choice of <u>waitvsync</u> or <u>triplebuffer</u> 
+        depending on whether you enable <u>triplebuffer</u> or not. What is the difference 
+        between <u>waitvsync</u> and <u>triplebuffer</u>? They both seem to do the same thing, 
+        waiting for the monitor to be in the middle of the vertical blank before 
+        updating the frame. The difference is that <u>waitvsync</u> uses code in MAME 
+        to wait for the vertical blank and <u>triplebuffer</u> actually puts that task 
+        on the DirectDraw/D3D subsystem. I find that <u>triplebuffer</u> works better 
+        on a wider variety of hardware so I prefer it. </p>
+      <p></p>
+      <p class=BodyText style='text-indent:.5in'>The advantage is that you have 
+        the closest thing to our first example of perfect video.  You can't see 
+        any retrace lines, scrolling games look perfect, and any flashing frames 
+        will look exactly as they did in the arcade:</p>
+      <p class=MsoNormal><span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span></p>
+      <p class=Caption><img src="../graphics/SAMDEVtweaks/image001.jpg" width="500" height="94"></p>
+      <p class=MsoNormal><span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span></p>
+      <p class=BodyText style='text-indent:.5in'>The primary disadvantage is that 
+        you may not be playing the game at the same speed it ran in the arcade.  
+        This is why I recommend using this technique for games that are very close 
+        to your monitor's refresh rate.  For example, a game that runs at 60.60606 
+        fps (think about a round yellow character eating dots!) would be 1% slower 
+        if run at 60 fps.  This small decrease in speed would not be very noticeable, 
+        but if would certainly be noticeable if you sped up a game that normally 
+        runs at 53 fps to 60 fps (13% faster).</p>
+      <p class=BodyText style='text-indent:.5in'>I use this technique on games 
+        from 58.5 to 61.5 fps which includes 87% of all MAME games.  Fortunately, 
+        70% of these are 60 fps games so they run at the correct speed (unless 
+        you video adapter is too far off of 60.000000 Hz).  The other 17% of games 
+        I run using this technique will be made faster or slower by 0.1 - 2.1%.  
+        There are emulation purists who would say that any game speed change however 
+        small is not acceptable, but I think a couple of percent difference in 
+        game speed on 17% of the games is an acceptable trade for perfect video.  
+        I'll bet the variations in electronics from the same arcade game to another 
+        were probably off by a percent or so anyway.</p>
+      <p class=BodyText><span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span>A 
+        second disadvantage of this technique is that your CPU must be fast enough 
+        to prepare the next frame before the monitor needs it.  If it isn't fast 
+        enough, then it will miss its opportunity to update the monitor when it 
+        is in between frames and have to wait for the next refresh cycle.  If 
+        this happens, you should go back to technique 1 because it will run faster 
+        if not synchronized to the monitor.</p>
+      <p class=BodyText style='text-indent:.5in'>To use this technique, make sure 
+        you are running MAME 0.103u2 or later.  Versions before that had a couple 
+        of bugs regarding the <u>syncrefresh</u>, <u>waitvsync</u>, and <u>triplebuffer</u> 
+        options.  If you want to stick with an older version and you compile your 
+        own, please email me as I can send you a patch that corrects the bugs 
+        for older versions.</p>
+      <p class=MsoNormal style='text-indent:.4in'><span style='font-size:10.0pt;
+font-family:Tahoma'> </span></p>
+      <p class=SectionHead>Technique 3:  Use both timers</p>
+      <p class=BodyText style='text-indent:.5in'>To enable this technique you 
+        must enable either the <u>triplebuffer</u> or <u>waitvsync</u> options 
+        with <u>syncrefresh</u> disabled.  This will make MAME use its internal 
+        timer as well as wait for the monitor to be in the vertical blank before 
+        updating the frame.</p>
+      <p class=BodyText style='text-indent:.5in'>The advantages are that this 
+        will eliminate the retrace line just like technique 2, and at the same 
+        time keep the original game speed.  This causes a problem because frames 
+        will be displayed twice when MAME's timer (the game speed) is unable to 
+        keep up with the monitor (refresh rate).</p>
+      <p class=MsoNormal><span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span></p>
+      <p class=Caption><img src="../graphics/SAMDEVtweaks/image003.jpg"></p>
+      <p class=MsoNormal><span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span></p>
+      <p class=BodyText style='text-indent:.5in'>Here is an example the worst 
+        possible case:  What if you have a game that is 59 fps and you run it 
+        on a 60 Hz monitor.  This means that for every 1 second the game is 1 
+        frame short.  What will happen is that MAME will keep the game at the 
+        slower 59 fps rate and one frame of the 59 will have to be displayed twice 
+        as in the above example.  So, think about a game that displays a frame 
+        twice every second, on the second.  If you playing a scrolling game of 
+        any type, this would mean the scrolling would stop every second on the 
+        second.  Most arcade games are all about action so the action would stop 
+        every second on the second.  Needless to say this would be very obnoxious 
+        and would make it unplayable.</p>
+      <p class=BodyText style='text-indent:.5in'>When using both timers, you can't 
+        eliminate that frames will be displayed twice, but what you can do is 
+        try to make them less noticeable.  One per second is very noticeable.  
+        Also, if you are running a 60 fps game and your monitor is actually running 
+        60.1 Hz, then every ten seconds this 0.1 Hz difference will add up and 
+        become a displayed twice frame.  So it is games that are near the refresh 
+        rate that look horrible this technique.</p>
+      <p class=BodyText style='text-indent:.5in'>To make this technique look better 
+        you want there to be as many displayed twice frames as possible and as 
+        randomly as possible.  I have found that once you approach 8 or more displayed 
+        twice frames per second that they become less noticeable.  So a 53 fps 
+        game running on a 60 Hz monitor would look much better than our 59 fps 
+        example above.  A better solution is to simply increase the refresh rate 
+        to something higher, such as 85 Hz.  Windows may not allow you to specify 
+        57 Hz, but you usually have a few refresh rates to choose from besides 
+        60 Hz.  Now, the 59 fps game at 85 Hz has 26 displayed twice frames all 
+        mixed in with the 59 active frames.  This will look much better.</p>
+      <span style='font-size:10.0pt;font-family:Tahoma'><br clear=all
+style='page-break-before:always'>
+      </span> 
+      <p class=SectionHead>Summary and Tweaks:</p>
+      <p class=BodyText style='text-indent:.5in'>You might be asking yourself, 
+        why not just use technique 3 all the time?  The reason is that 70% of 
+        the games in MAME will have virtually no game speed difference using technique 
+        2 and look 100% perfect using it.  Another 17% will have their game speed 
+        changed very little in order to look 100% perfect.  This leaves 13% of 
+        games which I recommend using technique 3 for.  While technique 3 looks 
+        very good, it does not look perfect like technique 2.  </p>
+      <p class=BodyText style='text-indent:.5in'>I certainly did not want to configure 
+        each game so that it would run technique 2 or 3 as this would take a huge 
+        amount of time.  Instead I created two new options in MAME that would 
+        automatically determine which technique to use based on the game speed 
+        being emulated.  Here are they are from MAME -<u>showusage</u>:</p>
+      <p class=BodyText style='text-indent:.5in'>&nbsp;</p>
+      <p class=Question>-[no]autosyncrefresh /         enables automatic sync 
+        refresh                  </p>
+      <p class=Question>-[no]asr                                                                       
+      </p>
+      <p class=Question>-autosyncrefresh_range / -asrr specifies automatic sync 
+        refresh range (games   </p>
+      <p class=Question>&lt;float&gt;                        60Hz +/- this value 
+        are included in automatic sync refresh</p>
+      <p class=Question>&nbsp; </p>
+      <p class=BodyText style='text-indent:.5in'>If <u>autosyncrefresh</u> is 
+        enabled, the game speed (fps) will be looked at when MAME starts.  If 
+        the game speed is within the range of 60 +/- the value specified in <u>autosyncrefresh_range</u>, 
+        then <u>syncrefresh</u> with be enabled <b>and</b> the <u>refresh</u> 
+        will be set to 60.  It is important to note that both of these will be 
+        changed when a game is within the range.  If a game is outside of the 
+        range specified, then they will not be changed and MAME will use your 
+        default <u>syncrefresh</u> and <u>refresh</u> settings.</p>
+      <p align="right" class=Return><a href="winmamemon_2.html">Part 
+        2: Changing the Default Settings</a></p>
+      <table width="100%" border="0">
+        <tr> 
+          <td class="BodyTextNoIndent">&nbsp;</td>
+          <td><div align="right"> 
+              <p align="right" class="BodyTextNoIndent">&nbsp;</p>
+            </div></td>
+        </tr>
+      </table>
+      <!-- InstanceEndEditable --> 
+</td>
+    <td colspan="3" rowspan="2" align="center" valign="top" bgcolor="#EAEAEA">
+</td>
+    <td><img src="../images/spacer.gif" width="1" height="290" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top" background="../images/secondary%20template_r2_c1.jpg">&nbsp;</td>
+    <td><img src="../images/spacer.gif" width="1" height="153" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td rowspan="3" colspan="3"><img name="secondarytemplate_r5_c1" src="../images/secondary%20template_r5_c1.jpg" width="419" height="70" border="0" alt=""></td>
+    <td colspan="5"><img name="secondarytemplate_r5_c4" src="../images/secondary%20template_r5_c4.jpg" width="521" height="37" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="1" height="37" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td rowspan="2" colspan="3"><img name="secondarytemplate_r6_c4" src="../images/secondary%20template_r6_c4.jpg" width="490" height="33" border="0" usemap="#m_secondary20template_r6_c4" alt=""></td>
+    <td><a href="../index.php"><img name="secondarytemplate_r6_c7" src="../images/secondary%20template_r6_c7.jpg" width="20" height="19" border="0" alt=""></a></td>
+    <td rowspan="2"><img name="secondarytemplate_r6_c8" src="../images/secondary%20template_r6_c8.jpg" width="11" height="33" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="1" height="19" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td><img name="secondarytemplate_r7_c7" src="../images/secondary%20template_r7_c7.jpg" width="20" height="14" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="1" height="14" border="0" alt=""></td>
+  </tr>
+  <map name="m_secondary20template_r6_c4">
+    <area shape="rect" coords="469,1,485,17" href="#" alt="Email" onMouseDown=			
+	   "mask('t.com','retroblas','info@','')">
+    <area shape="rect" coords="434,3,461,13" href="../files.html" alt="" >
+    <area shape="poly" coords="384,3,413,3,413,13,384,13,384,3" href="../links.html" alt="" >
+    <area shape="poly" coords="322,3,364,3,364,13,322,13,322,3" href="../reviews.html" alt="" >
+    <area shape="rect" coords="242,4,301,14" href="../coinoptv.php" alt="" >
+  </map>
+</table>
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-459542-1";
+urchinTracker();
+</script>
+
+</body>
+<!-- InstanceEnd --></html>

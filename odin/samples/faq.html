@@ -1,0 +1,47 @@
+<?php
+	
+	define ("PHP_ROOT", ".");
+	require(PHP_ROOT . "/header.php");
+	
+	$faq_id = $_REQUEST['cid'];
+	require(PHP_ROOT . "/widgets/faqwidget.php");
+	
+	define("PAGETITLE", $faqwidget->title." @ " . SITENAME);
+	require(PHP_ROOT . "/wwwheader.php");
+	
+	require(PHP_ROOT . "/include/date.php");
+
+?>
+
+<table style="width:750px;text-align:center;" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td>
+		<div class="articleHeader">
+			<strong class="title"><?= $faqwidget->title?></strong><br><br>
+			<strong class="author">Written by: <?= $faqwidget->author?></strong><br>
+		</div>
+	</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>
+	<div align="justify" class="articleBody"><?= $faqwidget->body?></div>
+</td></tr>
+</table>
+		
+<table style="width:750px;text-align:center;" border="0" cellpadding="0" cellspacing="0">
+<tr><td><br><hr noshade><br></td></tr>
+
+
+<? foreach ($faqwidget->list as $faqqa) { ?>
+<tr valign="top">
+	<td>
+		<div class="articleHeader"><strong class=subtitle><?=$faqqa['faq_question']?></strong></div>
+		<div class="articleBody" align="justify"><?=$faqqa['faq_answer']?></div><br>
+	</td>
+</tr>
+<? } ?>
+</table>
+<? 
+	require(PHP_ROOT . "/wwwfooter.php");
+	require(PHP_ROOT . "/footer.php");
+?>

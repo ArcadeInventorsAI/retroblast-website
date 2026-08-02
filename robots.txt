@@ -1,0 +1,5 @@
+# robots.txt for http://retroblast.com/
+User-agent: *
+Disallow: /files/     # Do not map files.
+Disallow: /templates/ # Do not map templates.
+Disallow: /uploads/   # Do not map uploaded files.

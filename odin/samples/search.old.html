@@ -1,0 +1,294 @@
+<?php
+
+	define ("PHP_ROOT", ".");
+	require(PHP_ROOT . "/header.php");
+
+	define("PAGETITLE", "Welcome to ".SITENAME."!");
+	require(PHP_ROOT . "/wwwheader.php");
+	require_once(PHP_ROOT . "/include/date.php");
+	
+	if ($_REQUEST['startDate'] == "") $article_limit = 5;
+	require(PHP_ROOT . "/widgets/galleryList.php");
+
+?>
+<table style="width:750px;text-align:center;" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top"> 
+
+    <td> 
+		<? foreach ($galleryList->list as $article) { ?>
+
+			<!-- $tempDate = explode("-",strtok($row["createdDate"]," "));
+			$createdDate = strftime ("%a. %b %d, %Y", mktime (0,0,0,$tempDate[1],$tempDate[2],$tempDate[0])) ;-->
+
+		<table cellpadding="0" cellspacing="0" border="0">
+		<tr><td rowspan='2'><img class=teaser src="<?=$article['article_topicimage']?>" alt='<?=$article['topic']?>' width="40" height="40"></td>
+		<td valign='top' style='width:575px'><strong class=title><?=$article['article_title']?></strong></td></tr>
+		<tr><td valign='bottom'><strong class=teaserdate>Written: <?=date_FullMonthName($article['article_date'])?></strong></td></tr>
+		<tr><td colspan='2'>&nbsp;</td></tr>
+		</table>
+		
+		<div align=justify><?= $article['article_body']?></div><p class=commentlink> + Update by: 
+		<a href='/search/user/<?=$article['author_id']?>'><?=$article['article_author']?></a> | 
+		
+		<? 
+		if (intval($article['article_comments']) > 1) { echo "<a href=\"article.html?cid=".$article['article_id']."\">".$article["article_comments"]." Comments</a> | "; }
+		else if (intval($article['article_comments']) == 1) { echo "<a href=\"article.html?cid=".$article["article_id"]."\">".$article["article_comments"]." Comment</a> | "; }
+		?>
+		
+		<a href="#" onClick="window.open('comment.html?op=<?=FORM_STATE_NEW?>&content_id=<?= $article['article_id']?>','addcomment','height=280,width=450')">Add A Comment</a>
+	  	+</p>
+		<span style='height:25px;text-align:center;'><img src='/images/spacer_green.gif' style='width:300px;height:1px'></span>
+		<? } ?>
+		<div style='width:615px'>
+	</div>
+      </div></td>
+  </tr>
+</table>
+<?
+	require(PHP_ROOT . "/wwwfooter.php"); 
+	require(PHP_ROOT . "/footer.php");
+?>
+
+<?php /*
+	
+	define("EVERYTHING_NO_SEARCH",-2);
+	define("EVERYTHING_BODY_SEARCH",-1);
+	define("ROWS_TO_DISPLAY",10);
+	
+	define("SEARCH_EVERYTHING",0);
+	define("SEARCH_BY_TOPIC","topic");
+	define("SEARCH_BY_CONTENT_TYPE","content");
+	define("SEARCH_BY_USER","user");
+	
+	define("TEASER_LENGTH",200);
+	
+	$PAGETITLE 		= "Search @ Jerrysworld.org";
+	$contentType	= intval($contentType);
+	$seachType 		= addslashes($searchType);
+	$query		 	= addslashes($query);
+	$startRow 		= intval($startRow);
+	$rowsToDisplay 	= ROWS_TO_DISPLAY;
+	
+	require("./header.php"); 
+	require("./INCLUDES/wwwHeader.php");
+
+function search_GetTrueRowsToDisplay($startRow, $rowsToDisplay, $rows){
+# Purpose: Return the integer value of the number of rows to display on a search page
+# Author: Jerry2 12/7/2002
+
+	return (($startRow + $rowsToDisplay) > $rows) ? 
+		(($startRow + $rowsToDisplay) - $rows) : 
+		($rowsToDisplay);
+
+} # end search_GetTrueRowsToDisplay
+
+function search_PrepareNextResultsLink($startRow, $rowsToDisplay, $rows) {
+# Purpose: Prepare a link to the next $rowsToDisplay number of search results
+# Author: Jerry2 12/7/2002
+
+	$nextStartRow = $startRow + $rowsToDisplay;
+	if ($nextStartRow >= $rows) $nextStartRow = $startRow;
+	$s = 
+		"<a href=\"#\" onClick=\"document.form.startRow.value=".$nextStartRow.";document.form.submit();\">"
+			."Next ".$rowsToDisplay." Results >></a>";
+	return $s;
+} # end search_PrepareNextResultsLink
+
+function search_PreparePrevResultsLink($startRow, $rowsToDisplay){
+# Purpose: Prepare a link to the previous $rowsToDisplay number of search results
+# Author: Jerry2 12/7/2002
+
+	$backStartRow = $startRow - $rowsToDisplay;
+	if ($backStartRow < 0) $backStartRow = 0;
+	$s = 
+		"<a href=\"#\" onClick=\"document.form.startRow.value=".$backStartRow.";document.form.submit();\">"
+		."<< Previous ".$rowsToDisplay." Results</a>";
+	return $s;
+	
+} # end search_PreparePrevResultsLink
+
+function search_PrintSearchFields($query,$contentType){
+# Purpose: Print the Search Fields box allowing users to perform a custom search
+# Author: Jerry2 12/7/2002
+
+	echo "\n\n<div class=box align=center>"
+		."<span style='width:200px;text-align:left;'>Search for: "
+		."<input class=input type=text name=\"query\" value='"
+		.stripslashes($query)."'></span><span style='width:300px;text-align:left;'>Search: "
+		."<select name=\"contentType\"><option value='0'>Everything</option>";
+		
+	print_ContentOptions(intval($contentType));
+		
+	echo "</select></span><span>"
+		."<input type='button' onClick=\"document.form.submit();\" class='button' value=\"Search\" style='width:150px;'></span>"
+		."</div>\n\n";
+
+}
+
+function search_GeneralTeaster($article, $image, $link, $length){
+# Purpose: Return a string ($s) that contains a formatted table row containing teaser text for a 
+#	daily article.
+# Author: Jerry2 12/7/2002
+
+	$date 	= format_DateShort($article["createdDate"]);
+	$body 	= strip_tags(stripslashes(substr($article["body"],0,$length)));
+	$body	.=(strlen($article["body"]) > $length)?("..."):("");
+	$title 	= stripslashes($article['title']);
+	
+	$s = "<tr><td valign=top class=left style='word-wrap:break-word;' class=teasertext align=justify>"
+	  	."<span style='width:540px'><a href='".$link."'><strong class=title2>".$title."</strong></a>"
+		."</span><span style='width:175px;text-align:right' class=authorEmail>"
+		.$date."</span><br>".$body."</td></tr>"
+		."<tr class=data><td colspan=3 height=1></td></tr>";
+
+	return $s;
+
+} # end search_GeneralTeaster
+
+
+	// Perform the search
+	if ($searchType == SEARCH_BY_TOPIC){
+		$aid = intval($iid);
+		$sql = "SELECT a.aid, c.cid, c.title, c.body, c.createdDate, c.type 
+				FROM tblAttributeLink a 
+					LEFT JOIN tblContent c ON a.eid=c.cid 
+				WHERE a.aid=".$aid." AND c.status=".$ST_ACTIVE;
+						
+		$queryType = "Articles in Topic: ".$TOPICS[$aid]['name'];
+		$displaySearchFields = false;
+		
+	} else if ($searchType == SEARCH_BY_CONTENT_TYPE){
+		$type = intval($type);
+		
+		// Fetch the type name from the database
+		$sql = "SELECT name FROM tblTypes WHERE value=".$type;
+		$rs = mysql_query($sql) or die(mysql_error());
+		$r = mysql_fetch_assoc($rs);
+		$queryType = "Jerrysworld Special Features: ".$r['name'];
+		
+		// Prepare the content select SQL statement
+		$sql  ="SELECT u.username AS author, c.cid, c.type, c.title, c.createdDate 
+				FROM tblContent c 
+					LEFT JOIN tblUsers u ON c.aid=u.uid 
+				WHERE c.type=".$type." AND c.status=".$ST_ACTIVE."
+				ORDER BY c.title ASC ";
+
+		$displaySearchFields = false;
+	
+	} else if ($searchType == SEARCH_BY_USER) {
+		$uid 	= intval($uid);
+		$sql 	= "SELECT username FROM tblUsers WHERE uid=".$uid;
+		$rs		= mysql_query($sql) or die(mysql_error());
+		$r 		= mysql_fetch_assoc($rs);
+		$queryType = "Articles Written By:  ".$r['username'];
+		
+		$conditions = "c.aid=".$uid;
+		
+		$sql = "SELECT a.aid, c.cid, c.title, c.body, c.createdDate, c.type 
+					FROM tblContent c 
+						LEFT JOIN tblAttributeLink a ON a.eid=c.cid 
+					WHERE ".$conditions." AND a.type=".$ALT_ARTICLE_TOPIC." AND c.status=".$ST_ACTIVE;
+
+		$displaySearchFields = false;
+
+	} else {
+		$queryType = "Search Jerrysworld";
+		$displaySearchFields = true;
+		
+		if ($query != "") {
+			$conditions = ($contentType == 0) ?
+				("(c.title LIKE '%$query%' OR c.body LIKE '%$query%')") :
+				("c.type=".$contentType." AND (c.title LIKE '%$query%' OR c.body LIKE '%$query%')");
+			$sql = "SELECT a.aid, c.cid, c.title, c.body, c.createdDate, c.type 
+					FROM tblContent c 
+						LEFT JOIN tblAttributeLink a ON a.eid=c.cid 
+					WHERE ".$conditions." AND a.type=".$ALT_ARTICLE_TOPIC." AND c.status=".$ST_ACTIVE;
+		}
+	}
+
+$rows = 0;
+if ($sql != "") {
+	$contents = mysql_query($sql) or die(mysql_error());
+	$rows = mysql_num_rows($contents);
+}
+
+// Since we may not display the maximum number of rows on a page (ie the record set may return 8 results
+// but we can display 10 results per page, we need a variable to hold the actual number of rows being
+// displayed.
+$trueRowsToDisplay = search_GetTrueRowsToDisplay($startRow, $rowsToDisplay, $rows);
+	
+// Determine if there are any previous or next results. Store the boolean evaluation in the following
+$displayPrevResults = ($startRow > 0)?(true):(false);
+$displayNextResults = ($trueRowsToDisplay == $rowsToDisplay)?(true):(false);
+
+// Prepare the prev/next document scrolling link
+$documentScroll = "";
+if ($displayPrevResults) $documentScroll .= search_PreparePrevResultsLink($startRow, $rowsToDisplay);
+if ($displayNextResults && $displayPrevResults) $documentScroll .= " | ";
+if ($displayNextResults) $documentScroll .= search_PrepareNextResultsLink($startRow, $rowsToDisplay, $rows);
+	
+// Finally display the results of all this work.
+echo "<table style=\"width:750px;text-align:center;\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">"
+	."<tr valign=\"top\"><td><a name=top></a>"
+	."<h1><img align='absmiddle' class='illustration' src='/images/guestcomments.jpg' alt='Icon'> "
+	.$queryType."</h1></td></tr><tr><td>";
+
+echo "<form enctype=\"multipart/form-data\" name=\"form\" action=\"".$PHP_SELF."\" method=\"post\">";
+
+if ($displaySearchFields) search_PrintSearchFields($query,$contentType);
+
+if ($rows > 0) {
+
+	mysql_data_seek($contents,$startRow);		// Move the read pointer to the first row to display
+	$count = 0;									// Reset the count variable to track the rows displayed
+
+	echo "<div style='width:700px;margin:15px;text-align:center'>"
+		."<span style='width:300px;text-align:left;'>Now viewing results ".($startRow + 1)."-"
+		.($startRow + $trueRowsToDisplay)." of ".$rows."</span>"
+		."<span style='width:400px;text-align:right;'>"
+		."<input type=\"hidden\" name=\"searchContent\" value=\"".addslashes($searchContent)."\">"
+		."<input type=\"hidden\" name=\"startRow\" value=\"\">"
+		.$documentScroll
+		."</span></div><hr noshade>"
+		."<table style=\"width:750px;\" align=\"center\" cellpadding=\"5\" cellspacing=\"2\" border=\"0\">";
+
+	while (($content = mysql_fetch_assoc($contents)) && ($count < $rowsToDisplay)){
+
+		if ($content["type"] == $CT_DAILY_ARTICLE){
+			$image 	= $TOPICS[$content['aid']]['thumb'];
+			$page 	= "/articles/".$content["cid"];
+			$print	= "object_FormatSingleDailyArticleTeaser";
+			$length = TEASER_LENGTH;
+
+		} else if ($content["type"] > $CT_GALLERY) {
+			$image 	= $content['filename'];
+			$page 	= "/gallery.html?cid=".$content["cid"];
+			$print	= "search_GeneralTeaster";
+			$length = TEASER_LENGTH;
+
+		} else {
+			$page	= "/features/".$content["cid"];
+			$print	= "search_GeneralTeaster";
+			$length	= TEASER_LENGTH;
+		}
+
+		echo $print($content,$image,$page,$length);
+		echo "<input type='hidden' name='searchType' value='".$searchType."'>";	
+		$count ++;
+	}
+	
+	echo "</table>";
+	mysql_free_result($contents);
+}
+
+
+//} else if ($contentFilter != -2) {
+//	search_PrintSearchFields($searchContent,$contentFilter);
+//	echo "<div style='margin:15px'>Sorry, but your search did not return any matches. Please try again</div>";
+//}
+
+echo "</form></td></tr></table>";
+
+require("./INCLUDES/wwwFooter.php");
+require("./INCLUDES/footer.php");*/
+?>

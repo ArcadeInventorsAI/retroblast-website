@@ -1,0 +1,86 @@
+<?php
+
+	define ("PHP_ROOT", ".");
+	define ("LENGTH",200);
+	require(PHP_ROOT . "/header.php");
+
+	define("PAGETITLE", "Welcome to ".SITENAME."!");
+	require(PHP_ROOT . "/wwwheader.php");
+
+	require_once(PHP_ROOT . "/include/date.php");
+	
+	if (($_POST['op'] == 'Search') || ($_REQUEST['op'] == 'Search')) {
+		$query = $_POST['query'];
+		require(PHP_ROOT . "/widgets/searchwidget.php");
+		$numberOfSearchResults = count($searchwidget->list);
+	}
+
+?>
+
+<form action="<?= $_SERVER['PHP_SELF']?>" method="post">
+<table style="width:750px;text-align:center;" border="0" cellpadding="0" cellspacing="0">
+	<tr valign="top">
+		<td><a name=top></a><h1><img align='absmiddle' class='illustration' src='/images/guestcomments.jpg' alt='Icon'> Search</h1></td>
+	</tr>
+
+  <tr valign="top"> 
+
+    <td> 
+	<div class=box align=center>
+		<span style='width:500px;text-align:left;'>Search for: <input class="input" type="text" name="query" value="<?=$searchwidget->query?>"></span>
+		<!--<span style='width:300px;text-align:left;'>
+			Search: 
+			<select name="type">
+			<option value='<?= SEARCH_EVERYTHING?>'>Everything</option>
+			<option value='<?= SEARCH_BY_TOPIC?>'>Daily Article Topic</option>
+			<option value='<?= SEARCH_BY_CONTENT_TYPE?>'>Content Type</option>
+			<option value='<?= SEARCH_BY_GALLERY_TYPE?>'>Gallery Image Type</option>
+			</select>
+		</span>
+		-->
+		<span><input type='submit' class='button' name="op" value="Search" style='width:150px;'></span>
+		<input type="hidden" value="<?= SEARCH_EVERYTHING?>" name="type">
+	</div>
+	</td>
+  </tr>
+</table>
+</form>
+
+<!-- DISPLAY SEARCH RESULTS -->
+<? if ($numberOfSearchResults > 0) { ?>
+<!--
+<div style='width:700px;margin:15px;text-align:center'>
+<span style='width:300px;text-align:left;'>Now viewing results <?=$startRow + 1?> - <?= $startRow + $trueRowsToDisplay ?> of <?= $numberOfSearchResults?></span>
+<span style='width:400px;text-align:right;'>
+	<input type="hidden" name="startRow" value=""><?=$documentScroll?>
+</span></div>
+-->
+<hr noshade style="width:750px;" align="center">
+
+<table style="width:750px;" align="center" cellpadding="5" cellspacing="2" border="0">
+<? foreach ($searchwidget->list as $content) { 
+	$body 	= strip_tags(substr($content["content_body"],0,LENGTH));
+	$body	.=(strlen($content["content_body"]) > LENGTH)?("..."):("");
+?>
+<tr>
+	<td valign="top" class="left" style='word-wrap:break-word;' class="teasertext" align="justify">
+		<? if ($content['content_type'] == CT_GALLERY) { ?>
+			<span style='width:540px'><a href="gallery.html?cid=<?=$content['content_id']?>"><strong class=title2><?=$content['content_title']?></strong></a></span>
+		<? } else if ($content['content_type'] == CT_DAILY_ARTICLE) { ?>
+			<img class=teaser src="<?=$content['content_topicimage']?>" alt='<?=$content['content_topic']?>' width="40" height="40">
+			<span style='width:500px'><a href="article.html?cid=<?=$content['content_id']?>"><strong class=title2><?=$content['content_title']?></strong></a></span>
+			<span style='width:175px;text-align:right' class=authorEmail><?=date_FullMonthName($content['content_date'])?></span><br><?=$body?>
+		<? } else if ($content['content_type'] == CT_ESSAY) { ?>
+			<span style='width:540px'><a href="feature.html?cid=<?=$content['content_id']?>"><strong class=title2><?=$content['content_title']?></strong></a></span>
+			<span style='width:175px;text-align:right' class=authorEmail><?=date_FullMonthName($content['content_date'])?></span><br><?=$body?>
+		<? } else if ($content['content_type'] == CT_FAQ) { ?>
+			<span style='width:540px'><a href="faq.html?cid=<?=$content['content_id']?>"><strong class=title2><?=$content['content_title']?></strong></a></span>
+		<? } ?>
+	</td></tr>
+<tr class=data><td colspan=3 height=1></td></tr>
+<? } ?>
+<? } ?>
+<?
+	require(PHP_ROOT . "/wwwfooter.php"); 
+	require(PHP_ROOT . "/footer.php");
+?>

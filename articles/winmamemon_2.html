@@ -1,0 +1,498 @@
+<html><!-- InstanceBegin template="/Templates/review.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>RetroBlast! - MAME Monitor Tweaks Part 2</title>
+<!-- InstanceEndEditable -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+
+<!-- InstanceBeginEditable name="keywords" -->
+<meta name="keywords" content="RetroBlast, Retro Blast">
+<!-- InstanceEndEditable -->
+
+<script language="JavaScript" src="/BannerManager.js" type="text/JavaScript"></script>
+
+<!-- Fireworks MX Dreamweaver MX target.  Created Mon Jul 07 16:03:20 GMT-0400 (Eastern Standard Time) 2003-->
+<script language="JavaScript" type="text/JavaScript">
+<!--
+<!--
+function mask(end,middle,start,subject){
+var one ='mai';
+var two='lto:';
+var three='?Subject=';
+start,middle,end,subject;
+var putogether= one+two+start+middle+end+three+subject;
+document.location.href=eval('"'+putogether+'"');
+window.status=putogether;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_nbGroup(event, grpName) { //v6.0
+  var i,img,nbArr,args=MM_nbGroup.arguments;
+  if (event == "init" && args.length > 2) {
+    if ((img = MM_findObj(args[2])) != null && !img.MM_init) {
+      img.MM_init = true; img.MM_up = args[3]; img.MM_dn = img.src;
+      if ((nbArr = document[grpName]) == null) nbArr = document[grpName] = new Array();
+      nbArr[nbArr.length] = img;
+      for (i=4; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+        if (!img.MM_up) img.MM_up = img.src;
+        img.src = img.MM_dn = args[i+1];
+        nbArr[nbArr.length] = img;
+    } }
+  } else if (event == "over") {
+    document.MM_nbOver = nbArr = new Array();
+    for (i=1; i < args.length-1; i+=3) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = (img.MM_dn && args[i+2]) ? args[i+2] : ((args[i+1])? args[i+1] : img.MM_up);
+      nbArr[nbArr.length] = img;
+    }
+  } else if (event == "out" ) {
+    for (i=0; i < document.MM_nbOver.length; i++) {
+      img = document.MM_nbOver[i]; img.src = (img.MM_dn) ? img.MM_dn : img.MM_up; }
+  } else if (event == "down") {
+    nbArr = document[grpName];
+    if (nbArr)
+      for (i=0; i < nbArr.length; i++) { img=nbArr[i]; img.src = img.MM_up; img.MM_dn = 0; }
+    document[grpName] = nbArr = new Array();
+    for (i=2; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = img.MM_dn = (args[i+1])? args[i+1] : img.MM_up;
+      nbArr[nbArr.length] = img;
+  } }
+}
+//-->
+</script>
+<!-- InstanceBeginEditable name="head" -->
+<style type="text/css">
+<!--
+.style3 {color: #0000FF}
+-->
+</style>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+//-->
+</script>
+<!-- InstanceEndEditable -->
+<link href="/retrostyle.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+body {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	background-color: #1569E5;
+}
+-->
+</style>
+<link href="/retrostyle.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" onLoad="MM_preloadImages('../images/sidebar_r2_c2_f3.jpg','../images/sidebar_r2_c2_f2.jpg','../images/sidebar_r4_c2_f3.jpg','../images/sidebar_r4_c2_f2.jpg','../images/sidebar_r6_c2_f3.jpg','../images/sidebar_r6_c2_f2.jpg','../images/sidebar_r8_c2_f3.jpg','../images/sidebar_r8_c2_f2.jpg','../images/sidebar_r10_c2_f3.jpg','../images/sidebar_r10_c2_f2.jpg','../images/sidebar_r12_c2_f3.jpg','../images/sidebar_r12_c2_f2.jpg','../images/sidebar_r14_c2_f3.jpg','../images/sidebar_r14_c2_f2.jpg')">
+<table width="940" border="0" align="center" cellpadding="0" cellspacing="0"> 
+  <!-- fwtable fwsrc="secondary template.png" fwbase="secondary template.jpg" fwstyle="Dreamweaver" fwdocid = "742308039" fwnested="0" -->
+  <tr>
+    <td><img src="../images/spacer.gif" width="178" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="26" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="215" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="100" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="261" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="129" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="20" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="11" height="1" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="1" height="1" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td><a href="../index.php"><img name="secondarytemplate_r1_c1" src="../images/secondary%20template_r1_c1.gif" width="178" height="56" border="0" alt=""></a></td>
+    <td colspan="3"><!-- InstanceBeginEditable name="Titlebar" --><img src="../images/S_Articles.jpg" width="341" height="56"><!-- InstanceEndEditable --></td>
+    <td><img name="secondarytemplate_r1_c5" src="../images/secondary%20template_r1_c5.gif" width="261" height="56" border="0" alt=""></td>
+    <td colspan="3"><a href="http://gameroommagazine.com" target="_blank"><img name="secondarytemplate_r1_c6" src="../images/secondary%20template_r1_c6.jpg" width="160" height="56" border="0" alt=""></a></td>
+    <td><img src="../images/spacer.gif" width="1" height="56" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="2"><img name="secondarytemplate_r2_c1" src="../images/secondary%20template_r2_c1.jpg" width="204" height="4" border="0" alt=""></td>
+    <td colspan="3"><img name="secondarytemplate_r2_c3" src="../images/secondary%20template_r2_c3.jpg" width="576" height="4" border="0" alt=""></td>
+    <td colspan="3"><img name="secondarytemplate_r2_c6" src="../images/secondary%20template_r2_c6.jpg" width="160" height="4" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="1" height="4" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top" background="../images/secondary%20template_r2_c1.jpg"><a href="../coinoptv.php"></a>
+      <table border="0" cellpadding="0" cellspacing="0" width="178">
+  <!-- fwtable fwsrc="sidebar_sublevel.png" fwbase="sidebar_sublevel.jpg" fwstyle="Dreamweaver" fwdocid = "742308039" fwnested="0" -->
+  <tr>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="7" height="1" border="0"></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="162" height="1" border="0"></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="9" height="1" border="0"></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="1" border="0"></td>
+  </tr>
+  <tr>
+    <td colspan="3"><img name="sidebar_sublevel_r1_c1" src="../images/sidebar_sublevel_r1_c1.jpg" width="178" height="7" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="7" border="0"></td>
+  </tr>
+  <tr>
+    <td rowspan="14"><img name="sidebar_sublevel_r2_c1" src="../images/sidebar_sublevel_r2_c1.jpg" width="7" height="223" border="0" alt=""></td>
+    <td><a href="../gameroom.html" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r2_c2','../images/sidebar_sublevel_r2_c2_f2.jpg','../images/sidebar_sublevel_r2_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r2_c2','../images/sidebar_sublevel_r2_c2_f3.jpg',1);"><img name="sidebar_sublevel_r2_c2" src="../images/sidebar_sublevel_r2_c2.jpg" width="162" height="24" border="0" alt="GameRoom Articles"></a></td>
+    <td rowspan="14"><img name="sidebar_sublevel_r2_c3" src="../images/sidebar_sublevel_r2_c3.jpg" width="9" height="223" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r3_c2" src="../images/sidebar_sublevel_r3_c2.jpg" width="162" height="7" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="7" border="0"></td>
+  </tr>
+  <tr>
+    <td><a href="http://gameroommagazine.com" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r4_c2','../images/sidebar_sublevel_r4_c2_f2.jpg','../images/sidebar_sublevel_r4_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r4_c2','../images/sidebar_sublevel_r4_c2_f3.jpg',1);"><img name="sidebar_sublevel_r4_c2" src="../images/sidebar_sublevel_r4_c2.jpg" width="162" height="24" border="0" alt="GameRoom Web Store"></a></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r5_c2" src="../images/sidebar_sublevel_r5_c2.jpg" width="162" height="8" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="8" border="0"></td>
+  </tr>
+  <tr>
+    <td><a href="../reviews.html" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r6_c2','../images/sidebar_sublevel_r6_c2_f2.jpg','../images/sidebar_sublevel_r6_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r6_c2','../images/sidebar_sublevel_r6_c2_f3.jpg',1);"><img name="sidebar_sublevel_r6_c2" src="../images/sidebar_sublevel_r6_c2.jpg" width="162" height="24" border="0" alt="RetroBlast Reviews"></a></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r7_c2" src="../images/sidebar_sublevel_r7_c2.jpg" width="162" height="8" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="8" border="0"></td>
+  </tr>
+  <tr>
+    <td><a href="../articles.html" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r8_c2','../images/sidebar_sublevel_r8_c2_f2.jpg','../images/sidebar_sublevel_r8_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r8_c2','../images/sidebar_sublevel_r8_c2_f3.jpg',1);"><img name="sidebar_sublevel_r8_c2" src="../images/sidebar_sublevel_r8_c2.jpg" width="162" height="24" border="0" alt="RetroBlast Articles"></a></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r9_c2" src="../images/sidebar_sublevel_r9_c2.jpg" width="162" height="7" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="7" border="0"></td>
+  </tr>
+  <tr>
+    <td><a href="../links.html" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r10_c2','../images/sidebar_sublevel_r10_c2_f2.jpg','../images/sidebar_sublevel_r10_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r10_c2','../images/sidebar_sublevel_r10_c2_f3.jpg',1);"><img name="sidebar_sublevel_r10_c2" src="../images/sidebar_sublevel_r10_c2.jpg" width="162" height="24" border="0" alt="Game Room Links"></a></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r11_c2" src="../images/sidebar_sublevel_r11_c2.jpg" width="162" height="8" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="8" border="0"></td>
+  </tr>
+  <tr>
+    <td><a href="../files.html" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r12_c2','../images/sidebar_sublevel_r12_c2_f2.jpg','../images/sidebar_sublevel_r12_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r12_c2','../images/sidebar_sublevel_r12_c2_f3.jpg',1);"><img name="sidebar_sublevel_r12_c2" src="../images/sidebar_sublevel_r12_c2.jpg" width="162" height="24" border="0" alt="File Downloads"></a></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r13_c2" src="../images/sidebar_sublevel_r13_c2.jpg" width="162" height="8" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="8" border="0"></td>
+  </tr>
+  <tr>
+    <td><a href="../contact.html" onMouseOut="MM_nbGroup('out');" onMouseOver="MM_nbGroup('over','sidebar_sublevel_r14_c2','../images/sidebar_sublevel_r14_c2_f2.jpg','../images/sidebar_sublevel_r14_c2_f3.jpg',1);" onClick="MM_nbGroup('down','navbar1','sidebar_sublevel_r14_c2','../images/sidebar_sublevel_r14_c2_f3.jpg',1);"><img name="sidebar_sublevel_r14_c2" src="../images/sidebar_sublevel_r14_c2.jpg" width="162" height="24" border="0" alt="Site and Contact Information"></a></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="24" border="0"></td>
+  </tr>
+  <tr>
+    <td><img name="sidebar_sublevel_r15_c2" src="../images/sidebar_sublevel_r15_c2.jpg" width="162" height="9" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" alt="" name="undefined_3" width="1" height="9" border="0"></td>
+  </tr>
+</table>
+
+	  
+		
+    <td colspan="3" rowspan="2" valign="top" bgcolor="#EAEAEA">
+	
+    <!-- InstanceBeginEditable name="Body" --> 
+      <p class="MainHeading"><img src="../graphics/monitor_title_2.jpg" width="560" height="169"></p>
+      <table width="566" border="0">
+        <tr> 
+          <td width="283" class="ByLine">by Alan Kamrowski II (aka: SA Dev)<br>
+            February, 2006</td>
+          <td width="273"><div align="center"><span class="Caption"><span class="style3">Quick 
+              Jump:</span> 
+              <select name="select" onChange="MM_jumpMenu('parent',this,0)">
+                <option selected>Choose Section</option>
+                <option value="winmamemon_1.html">Part 1: MAME Monitor Tweaks 
+                for Windows</option>
+                <option value="winmamemon_2.html">Part 2: Mame Monitor Tweaks 
+                for Windows</option>
+              </select>
+              </span></div></td>
+        </tr>
+      </table>
+      <p align="center" class="MainHeading">Part 2: Changing the Default Settings</p>
+      <p class=SectionHead>Here are the settings I change from the defaults:</p>
+      <p class=SectionHead>&nbsp;</p>
+      <p class=Question>triplebuffer 1</p>
+      <p class=Question>resolution 1024x768x16</p>
+      <p class=Question>refresh 85</p>
+      <p class=Question>autosyncrefresh 1</p>
+      <p class=Question>autosyncrefresh_range 1.500000</p>
+      <p class=Question>syncrefresh 0</p>
+      <p class=MsoNormal><span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span></p>
+      <p class=BodyText style='text-indent:.5in'>If I load a game that is 60.60606 
+        fps, then it will be within the range of 60 fps +/- 1.5 (58.5 - 61.5 fps) 
+        and <u>autosyncrefresh</u> will enable <u>syncrefresh</u> and change the 
+        <u>refresh</u> to 60 which enables technique 2.</p>
+      <p class=BodyText style='text-indent:.5in'>If I load a game that is 53 fps, 
+        then it will be outside the range and <u>autosyncrefresh</u> will do nothing.  
+        This will leave <u>syncrefresh</u> off and <u>refresh</u> at 85 Hz which 
+        are perfect for technique 3.</p>
+      <p class=BodyText style='text-indent:.5in'>So there you have it, automatic 
+        selection of two techniques that deal with the video timing problems of 
+        Windows MAME.  If you force all the games to conform to a single resolution 
+        (something that Windows is excellent at), you can now display all the 
+        games in MAME with only two video modes (1024x768x60 Hz and 1024x768x85 
+        Hz in my example).  You can adjust your monitor for both of these modes, 
+        center and size them appropriately and <b>every game</b> in MAME will 
+        look great.</p>
+      <p class=BodyText style='text-indent:.5in'>If you use different resolutions 
+        for different games, then you can decide per game which technique you 
+        want to use and then simply enable it in a game specific INI, you don't 
+        actually need my <u>autosyncrefresh</u> tweak although you will still 
+        need MAME 0.103u2 or later for the bug fixes that come with it.</p>
+      <span style='font-size:10.0pt;font-family:Tahoma'><br clear=all
+style='page-break-before:always'>
+      </span> 
+      <p class=SectionHead>Other options I haven't already mentioned that you 
+        might also tweak in MAME:</p>
+      <p class=MsoNormal><span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span></p>
+      <p class=SectionHead><u>autoframeskip</u><span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span></p>
+      <p class=SectionHead>&nbsp;</p>
+      <p class=Question>-[no]autoframeskip / -[no]afs  skip frames to speed up 
+        emulation               </p>
+      <p class=BodyText><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span>I 
+        always disable <u>autoframeskip</u> as it is useless for modern processors.  
+        The games that are unable to run full speed these days can't be helped 
+        by the technique of frame skipping.  It looks terrible anyway and I think 
+        they should remove this option from MAME because it no longer has any 
+        value.</p>
+      <p class=BodyText>&nbsp;</p>
+      <p class=SectionHead><u>waitvsync</u></p>
+      <p class=SectionHead>&nbsp;</p>
+      <p class=Question>-[no]waitvsync                 wait for vertical sync 
+        (reduces tearing)        </p>
+      <p class=Question>&nbsp;</p>
+      <p class=BodyText><span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span>There 
+        is really no good reason to use waitvsync because triplebuffer does it 
+        better, unless you aren't using full screen mode.</p>
+      <p class=BodyText>&nbsp;</p>
+      <p class=SectionHead><u>triplebuffer</u></p>
+      <p class=SectionHead>&nbsp;</p>
+      <p class=Question>-[no]triplebuffer / -[no]tb    triple buffering (only 
+        if fullscreen)    </p>
+      <p class=Question>       </p>
+      <p class=BodyText><span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span>This 
+        is the preferred technique of waiting for the vertical blank to draw the 
+        next frame.</p>
+      <p class=BodyText>&nbsp;</p>
+      <p class=SectionHead><u>direct3d</u></p>
+      <p class=SectionHead>&nbsp;</p>
+      <p class=Question>-[no]direct3d / -[no]d3d       use Direct3D for rendering                  
+      </p>
+      <p class=BodyText>&nbsp;</p>
+      <p class=BodyText><span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span>I 
+        enable direct3d only for vector games because they appear brighter in 
+        direct3d mode.  I prefer the way raster games look on directdraw so I 
+        usually don't use direct3d for them.</p>
+      <p class=BodyText>&nbsp;</p>
+      <p class=SectionHead><u>resolution</u> and <u>refresh</u></p>
+      <p class=SectionHead>&nbsp;</p>
+      <p class=Question>-resolution / -r &lt;string&gt;      set resolution                                  
+      </p>
+      <p class=Question>-refresh &lt;int&gt;                 set specific monitor 
+        refresh rate</p>
+      <p class=Question>&nbsp;</p>
+      <p class=BodyText><span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span>I 
+        always define a specific resolution and refresh rate because I don't want 
+        MAME guessing for each game what to do.</p>
+      <p class=BodyText style='margin-left:.2in'>&nbsp;</p>
+      <p class=SectionHead><u>effect</u></p>
+      <p class=SectionHead>&nbsp;</p>
+      <p class=Question>-effect &lt;string&gt;               specify the blitting 
+        effect    </p>
+      <p class=Question>&nbsp;</p>
+      <p class=BodyText><span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span>I 
+        use a high resolution PC monitor and if you leave this at none you will 
+        get a blurry stretch that looks more like a lower arcade resolution monitor, 
+        not perfect but not bad.  I usually use sharp on this option because I 
+        prefer the retro looking crispness that comes with sharpening.</p>
+      <p class=BodyText style='margin-left:.2in'><span style='font-size:10.0pt;
+font-family:Tahoma'>&nbsp;</span>&nbsp;</p>
+      <p class=SectionHead><u>screen_aspect</u></p>
+      <p class=SectionHead>&nbsp;</p>
+      <p class=Question>-screen_aspect &lt;string&gt;        specify an alternate 
+        monitor aspect ratio  </p>
+      <p class=Question>     </p>
+      <p class=BodyText><span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span>If 
+        you have a horizontal mounted monitor this should probably be 4:3, on 
+        a vertical setup it is usually 3:4.  But keep in mind that you can use 
+        this to alter the width to height ratio of games.  My monitor is mounted 
+        vertically and the result is that horizontal games have black bars at 
+        the top and bottom.  I use this option in a horizontal.ini file (parsing 
+        of horizontal.ini is added by one of my other tweaks) that affects only 
+        horizontal games to stretch them a little bit vertically.  This makes 
+        horizontal games look bigger and if you only stretch them a little it 
+        is subtle.</p>
+      <p class=BodyText>&nbsp;</p>
+      <p class=SectionHead><u>sleep</u></p>
+      <p class=BodyText>&nbsp;</p>
+      <p class=Question>-[no]sleep          allow MAME to give back time to the 
+        system when it's not needed     </p>
+      <p class=Question>                          </p>
+      <p class=BodyText><span class="BodyText" style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span>I 
+        don't ever want MAME to sleep or volunteer CPU cycles back to the operating 
+        system so I disable this.  Don't confuse this with the <u>sleepafterframe</u> 
+        option below which gives control back to the operating system at the end 
+        of each frame.  I recommend the <u>sleepafterframe</u> option because 
+        it will bring synchronization to when MAME will be preempted.</p>
+      <p class=BodyText>&nbsp;</p>
+      <p class=SectionHead><u>rdtsc</u></p>
+      <p class=SectionHead>&nbsp;</p>
+      <p class=Question>-[no]rdtsc                     prefer RDTSC over QueryPerformanceCounter 
+        for  timing     </p>
+      <p class=BodyText>&nbsp;</p>
+      <p class=BodyText><span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span>You 
+        can only use this on certain processors (mostly desktop ones).  Any machine 
+        with power saving capability will likely be unable to handle RDTSC.  My 
+        suggestion is to start with this disabled and get everything working great.  
+        Then try to enable it and if everything still works ok, then keep it because 
+        it has less overhead than the alternative method.  My notebook can't handle 
+        it at all and it makes game play extremely erratic.<span style='font-size:10.0pt;
+font-family:Tahoma'>&nbsp;</span></p>
+      <p class=BodyText>&nbsp;</p>
+      <p class=SectionHead><u>high_priority</u></p>
+      <p class=SectionHead>&nbsp;</p>
+      <p class=Question>-[no]high_priority             increase thread priority  
+            </p>
+      <p class=Question>                  </p>
+      <p class=BodyText>I always enable this so MAME gets the most CPU time possible.</p>
+      <span style='font-size:10.0pt;font-family:"Courier New"'><br clear=all
+style='page-break-before:always'>
+      </span> 
+      <p class=SectionHead><b>Other options I haven't already mentioned that are 
+        added by my Autosyncrefresh Tweak:</b><span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span></p>
+      <p class=SectionHead>&nbsp;</p>
+      <p class=SectionHead><u>sleepafterframe</u></p>
+      <p class=SectionHead>&nbsp;</p>
+      <p class=Question>-[no]sleepafterframe /         releases the current timeslice 
+        after each frame </p>
+      <p class=Question>-[no]saf    </p>
+      <p class=Question>                                                                   
+      </p>
+      <p class=BodyText><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span>The 
+        sleepafterframe option causes MAME to issue a Sleep(0) command which sleeps 
+        for 0 milliseconds after each frame.  In reality this causes MAME to give 
+        up its current CPU time slice to the operating system right after a frame 
+        has been displayed.  Hopefully when MAME gets the processor back it will 
+        get an uninterrupted time slice to perform its processing and be ready 
+        to display the next frame before the monitor needs it.  I suggest using 
+        this because it creates a known place where MAME will be preempted instead 
+        of just leaving the when it will be preempted up to chance.</p>
+      <p class=BodyText>&nbsp;</p>
+      <p class=SectionHead><u>override_fps</u></p>
+      <p class=SectionHead>&nbsp;</p>
+      <p class=Question>-override_fps / -of &lt;float&gt;    overrides the default 
+        game fps                  </p>
+      <p class=Question>&nbsp;</p>
+      <p class=BodyText>The -override_fps command is a handy command if you want 
+        to force a game to run faster or slower.  This is also useful for someone 
+        who is impaired or a young child wants to play a game, by slowing it down 
+        a bit, you can make it more playable for them.</p>
+      <span style='font-size:10.0pt;font-family:Tahoma'><br clear=all
+style='page-break-before:always'>
+      </span> 
+      <p class=SectionHead><b>SA Dev's MAME Tweaks:</b></p>
+      <p class=BodyTextNoIndent style='text-indent:.5in'><span style='font-size:10.0pt;
+font-family:Tahoma'>My tweaks include many more added options than the ones I've 
+        included above.  You can download them here.  </span></p>
+      <p class=BodyTextNoIndent style='text-indent:.5in'>&nbsp;</p>
+      <p class=Return style='text-indent:.5in'><a href="http://home.earthlink.net/%7Ealank2/mame/" target="_blank">http://home.earthlink.net/~alank2/mame/</a></p>
+      <p class=BodyTextNoIndent style='text-indent:.5in'>&nbsp;</p>
+      <p class=BodyTextNoIndent style='text-indent:.5in'>To use these tweaks you 
+        must know how to compile MAME and modify the source code using them before 
+        compiling.  I will also be writing an article soon on how to compile MAME 
+        step by step, so you might refer to that when it is available, otherwise 
+        there are other guides and forums available on how to do this.  If you 
+        already know how to compile MAME, here is a how to integrate my tweaks.<span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span></p>
+      <p class=BodyTextNoIndent style='text-indent:.5in'>&nbsp;</p>
+      <p class=BulletList style='margin-left:.5in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Tahoma'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        </span></span>Extract the zip file into the directory with the makefile.  
+        SRC should be a subdirectory of this directory.  </p>
+      <p class=BulletList style='margin-left:.5in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Tahoma'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        </span></span>Run applyscr.bat and it will apply all the scripts one by 
+        one as you hit Y for yes.  </p>
+      <p class=BulletList style='margin-left:.5in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Tahoma'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        </span></span>Then compile MAME.  Once you have MAME with these tweaks 
+        compiled in, just run a "mame -cc&quot; and it will update your mame.ini 
+        to contain the new options.  You can use them from the command line as 
+        well. </p>
+      <p class=BulletList style='margin-left:.5in;text-indent:-.25in'>&nbsp;</p>
+      <p class=BodyText>Well, I hope this article will help you to have the best 
+        video quality possible from your Windows MAME setup!</p>
+      <p class=ByLine>Thanks,<span style='font-size:10.0pt;font-family:Tahoma'>&nbsp;</span>SA 
+        Dev </p>
+      <p align="center" class="Return"><a href="winmamemon_1.html">Part 
+        1: Tweaking Windows MAME </a></p>
+      <table width="100%" border="0">
+        <tr> 
+          <td class="BodyTextNoIndent">&nbsp;</td>
+          <td><div align="right"> 
+              <p align="right" class="BodyTextNoIndent">&nbsp;</p>
+            </div></td>
+        </tr>
+      </table>
+      <!-- InstanceEndEditable --> 
+</td>
+    <td colspan="3" rowspan="2" align="center" valign="top" bgcolor="#EAEAEA">
+</td>
+    <td><img src="../images/spacer.gif" width="1" height="290" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top" background="../images/secondary%20template_r2_c1.jpg">&nbsp;</td>
+    <td><img src="../images/spacer.gif" width="1" height="153" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td rowspan="3" colspan="3"><img name="secondarytemplate_r5_c1" src="../images/secondary%20template_r5_c1.jpg" width="419" height="70" border="0" alt=""></td>
+    <td colspan="5"><img name="secondarytemplate_r5_c4" src="../images/secondary%20template_r5_c4.jpg" width="521" height="37" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="1" height="37" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td rowspan="2" colspan="3"><img name="secondarytemplate_r6_c4" src="../images/secondary%20template_r6_c4.jpg" width="490" height="33" border="0" usemap="#m_secondary20template_r6_c4" alt=""></td>
+    <td><a href="../index.php"><img name="secondarytemplate_r6_c7" src="../images/secondary%20template_r6_c7.jpg" width="20" height="19" border="0" alt=""></a></td>
+    <td rowspan="2"><img name="secondarytemplate_r6_c8" src="../images/secondary%20template_r6_c8.jpg" width="11" height="33" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="1" height="19" border="0" alt=""></td>
+  </tr>
+  <tr>
+    <td><img name="secondarytemplate_r7_c7" src="../images/secondary%20template_r7_c7.jpg" width="20" height="14" border="0" alt=""></td>
+    <td><img src="../images/spacer.gif" width="1" height="14" border="0" alt=""></td>
+  </tr>
+  <map name="m_secondary20template_r6_c4">
+    <area shape="rect" coords="469,1,485,17" href="#" alt="Email" onMouseDown=			
+	   "mask('t.com','retroblas','info@','')">
+    <area shape="rect" coords="434,3,461,13" href="../files.html" alt="" >
+    <area shape="poly" coords="384,3,413,3,413,13,384,13,384,3" href="../links.html" alt="" >
+    <area shape="poly" coords="322,3,364,3,364,13,322,13,322,3" href="../reviews.html" alt="" >
+    <area shape="rect" coords="242,4,301,14" href="../coinoptv.php" alt="" >
+  </map>
+</table>
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-459542-1";
+urchinTracker();
+</script>
+
+</body>
+<!-- InstanceEnd --></html>
